@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)https://getbootstrap.com/docs/4.0/examples/navbar-top/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sistema de Control para Comerciantes Informarles</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./plantilla/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./plantilla/navbar-top.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <div>
+                <div> <a class="navbar-brand" href="#" style="color: dodgerblue;margin-left: 50px;">SICCI</a></div>
+                <div>
+                  <ul class="nav justify-content-end" style="margin-top: 5px;margin-right: 10px;">
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" style="    padding: 0px;margin: 0px;color: floralwhite;">
+                      
+                            Leomar Esparragoza                           
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="userDropdown">                          <a href="#" class="dropdown-item">
+                        <a href="#" class="dropdown-item">
+                            <i class="fa fa-user" aria-hidden="true"></i> Perfil                  
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fa fa-lock" aria-hidden="true"></i> Cambiar contraseña       
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();" class="dropdown-item">
+                            <i class="fa fa-power-off" aria-hidden="true"></i> Cerrar sesión
+                        </a>
+
+                        <form id="logout-form" action="#" method="POST" style="display: none;">
+                        </form>
+                </li>
+            </ul></div>
+            </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Producto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ventas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Inventario</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="nombre del Producto" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+      <div class="jumbotron">
+        <h1>BIENVENIDOS A SICCI</h1>
+        <h4>Sistema de Control de Comercio Informal</h4>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta ducimus cum quam iusto, aspernatur eveniet? Optio quaerat blanditiis temporibus, at similique reprehenderit laboriosam cumque explicabo possimus totam veritatis, quod nostrum!</p>
+        <a class="btn btn-lg btn-primary" href="#" role="button">Ver más »</a>
+      </div>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./plantilla/jquery-3.2.1.js"></script>
+    <script src="./plantilla/popper.min.js"></script>
+    <script src="./plantilla/bootstrap.js"></script>
+  
+
+</body></html>

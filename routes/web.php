@@ -10,13 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('/', function () {
     return view('auth/login');
 })->middleware('UserRole');
 
 Auth::routes();
+
 Route::post('/registrar','UsuarioController@NuevoUsuario');
 
 Route::group(['prefix' => 'inicio','middleware' => ['auth', 'UserRole']],function(){
@@ -30,11 +29,14 @@ Route::group(['prefix' => 'administrador','middleware' => ['auth', 'Administrado
 	Route::get('/', function () {
 	    return view('administrador.index');
 	});
+	Route::get('/registrar', function () {
+	    return view('auth.register');
+	});
 
 });
 
 
-Route::group(['prefix' => 'comerciante','middleware' => ['auth', 'ComercianteROle']],function(){
+Route::group(['prefix' => 'comerciante','middleware' => ['auth', 'ComercianteRole']],function(){
 	Route::get('/', function () {
 	    return view('comerciante.index');
 	});
