@@ -29,9 +29,13 @@ Route::group(['prefix' => 'administrador','middleware' => ['auth', 'Administrado
 	Route::get('/', function () {
 	    return view('administrador.index');
 	});
-	Route::get('/registrar', function () {
-	    return view('auth.register');
+	Route::get('/comerciantes', function () {
+	    return view('administrador.comerciante');
 	});
+	Route::get('/productos', function () {
+	    return view('administrador.producto');
+	});
+	Route::post('/comerciantes/registrar','ComercianteController@nuevo');
 
 });
 

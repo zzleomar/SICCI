@@ -20,13 +20,14 @@
     <header class="header sticky-top fondo-header"> 
         @include('partials.navbar')
                 
-        @yield('content')
     </header>
+        @yield('content')
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.2.1.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/personal.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

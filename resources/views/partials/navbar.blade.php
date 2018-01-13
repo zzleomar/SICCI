@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark" id="navPerso">
             @guest
                         {{--  Links de autenticacion  --}} 
                 <ul class="nav justify-content-end" style="margin-top: 5px;margin-right: 10px;">
@@ -12,12 +12,12 @@
             <ul class="nav nav-pills flex-column flex-sm-row " id="navP">
                 @if( Auth::user()->tipo=='Administrador')
                 <li class="nav-item">
-                <a class="navbar-brand" href="#" id="titulo">SICCI</a>
+                <a class="navbar-brand" href="{{ URL::to('/administrador') }}" id="titulo">SICCI</a>
               </li>
-                <li class="nav-item d-flex align-content-center flex-wrap">
-                    <a class="flex-sm-fill text-sm-center nav-link" href="{{ URL::to('/administrador/registrar') }}"> Comerciantes</a>
+                <li class="nav-item d-flex align-content-center flex-wrap" id="adminComerciantes">
+                    <a class="flex-sm-fill text-sm-center nav-link" href="{{ URL::to('/administrador/comerciantes') }}"> Comerciantes</a>
                 </li>
-                    <li class="nav-item d-flex align-content-center flex-wrap"><a class="flex-sm-fill text-sm-center nav-link" href="#">Productos</a></li>
+                    <li class="nav-item d-flex align-content-center flex-wrap" id="adminProductos"><a class="flex-sm-fill text-sm-center nav-link" href="{{ URL::to('/administrador/productos') }}">Productos</a></li>
                    <li class="nav-item d-flex align-content-center flex-wrap"> <a class="flex-sm-fill text-sm-center nav-link" href="#">Ventas</a>
                   </li>
                   @else

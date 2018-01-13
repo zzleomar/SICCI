@@ -9,7 +9,7 @@ class Comerciante extends Model
     protected $table ="comerciantes";
     
     protected $fillable = [
-        'user_id'
+        'user_id','cod_carnet'
     ];
 
     public function user(){

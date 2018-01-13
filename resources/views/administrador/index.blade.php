@@ -119,6 +119,7 @@
                                                     <td>35,800</td>
                                                     <td>46,000</td>
                                                 </tr>
+                                            </tbody><tbody>
                                                 <tr class="col-hover">
                                                     <td>Kimsila Orieal</td>
                                                     <td>maiz enlatado</td>
@@ -126,6 +127,7 @@
                                                     <td>54,800</td>
                                                     <td>80,000</td>
                                                 </tr>
+                                            </tbody><tbody>
                                                 <tr class="col-hover">
                                                     <td>Richard Doe</td>
                                                     <td>Latas de pintura</td>
@@ -133,6 +135,7 @@
                                                     <td>134,800</td>
                                                     <td>150,000</td>
                                                 </tr>
+                                            </tbody><tbody>
                                                 <tr class="col-hover">
                                                     <td>Jacob Dere</td>
                                                     <td>Carton de huevos</td>
@@ -140,6 +143,7 @@
                                                     <td>185,800</td>
                                                     <td>210,000</td>
                                                 </tr>
+                                            </tbody><tbody>
                                                 <tr class="col-hover">
                                                     <td>John Doe</td>
                                                     <td>Harina de maiz</td>
@@ -147,6 +151,7 @@
                                                     <td>34,800</td>
                                                     <td>50,000</td>
                                                 </tr>
+                                            </tbody><tbody>
                                                 <tr class="col-hover">
                                                     <td>John Doe</td>
                                                     <td>Harina de maiz</td>
@@ -154,13 +159,20 @@
                                                     <td>34,800</td>
                                                     <td>50,000</td>
                                                 </tr>
-
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
+                                  <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center pagination-sm">
+                                <li class="page-item"><a class="page-link" href="#">Previo</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Sig</a></li>
+                                </ul>
+                                </nav>
                             </div>
-
                         </div>
               </div>
 </div>
