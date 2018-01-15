@@ -20,6 +20,9 @@
                     <li class="nav-item d-flex align-content-center flex-wrap" id="adminProductos"><a class="flex-sm-fill text-sm-center nav-link" href="{{ URL::to('/administrador/productos') }}">Productos</a></li>
                    <li class="nav-item d-flex align-content-center flex-wrap"> <a class="flex-sm-fill text-sm-center nav-link" href="#">Ventas</a>
                   </li>
+                  <li class="nav-item d-flex align-content-center flex-wrap"> <a class="flex-sm-fill text-sm-center nav-link" href="#">Zonas de Comercio
+                  </a>
+                  </li>
                   @else
                   <li class="nav-item d-flex align-content-center flex-wrap">
                     <a class="flex-sm-fill text-sm-center nav-link" href="#">Cargar Producto</a>

@@ -22,7 +22,9 @@
                 
     </header>
         @yield('content')
-
+    <footer class="footer py-2">
+        <p class="text-center text-muted">&copy;2018 <a href="·">SICCI</a> - Gobernación del Estado Sucre</p>
+    </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.2.1.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>

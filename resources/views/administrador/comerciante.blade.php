@@ -6,35 +6,7 @@
 <div class="container" id="mainC">
 	
 	 <div class="row" style="">
-     <!--           <div class="col-md-4 col-sm-12 col-xs-12 wrapper">
-   
-    <div class="jcarousel-wrapper">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <img class="d-block img-fluid" src="/img/img1.gif" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="/img/img2.gif" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="/img/img3.gif" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div></div></div>-->
+  
                   <div class="col-md-4 col-sm-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -43,25 +15,25 @@
                             <div class="panel-body">
                                 <div class="list-group">
 
-                                    <a href="#" class="list-group-item">
+                                    <a class="list-group-item backgroun2 col-hover2" data-toggle="modal" data-target="#NotificacionesModal" href="#">
                                         <span class="badge">Hace 7 min</span>
                                         <i class="fa fa-fw fa-shopping-cart"></i> Nuevo producto
                                     </a>
-                                    <a href="#" class="list-group-item">
+                                    <a class="list-group-item backgroun2 col-hover2" data-toggle="modal" data-target="#NotificacionesModal" href="#">
                                         <span class="badge">Hace 18 min</span>
                                         <i class="fa fa-fw fa-dollar"></i> Nuevo registro de ventas
                                     </a>
-                                    <a href="#" class="list-group-item">
+                                    <a class="list-group-item backgroun2 col-hover2" data-toggle="modal" data-target="#NotificacionesModal" href="#">
                                         <span class="badge">Hace 39 min</span>
-                                        <i class="fa fa-fw fa-user"></i> Actualización de información personal
+                                        <i class="fa fa-fw fa-user"></i> Actualización de información personal de José Doe
                                     </a>
-                                    <a href="#" class="list-group-item">
+                                    <a class="list-group-item backgroun2 col-hover2" data-toggle="modal" data-target="#NotificacionesModal" href="#">
                                         <span class="badge">Hace 1 hora</span>
                                         <i class="fa fa-fw fa-user"></i> Se elimino un comercio
                                     </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">Hace 1 hora con 20 min</span>
-                                        <i class="fa fa-fw fa-globe"></i> Una nueva Carga de producto
+                                    <a class="list-group-item backgroun2 col-hover2" data-toggle="modal" data-target="#NotificacionesModal" href="#">
+                                        <span class="badge">Hace 39 min</span>
+                                        <i class="fa fa-fw fa-user"></i> Actualización de información personal de Andrea Surita
                                     </a>
                                 </div>
                                 <div class="text-right">
