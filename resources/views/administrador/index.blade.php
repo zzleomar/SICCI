@@ -5,7 +5,7 @@
 <div class="container" id="mainC">
     <div class="row" style="margin-top: 10px;">
                   <div class="col-md-3 col-sm-12 col-xs-12">
-                      <div class="panel panel-primary text-center no-boder bg-color-blue" style="padding: 7px;">
+                      <a href="{{ URL::to('/administrador/comerciantes') }}"><div class="panel panel-primary text-center no-boder bg-color-blue" style="padding: 7px;">
                           <div class="panel-body">
                               <i class="fa fa-user fa-5x" aria-hidden="true"></i>
                               <h3>1,457</h3>
@@ -14,7 +14,7 @@
                               Comerciantes
 
                           </div>
-                      </div>
+                      </div></a>
                   </div>
                   <div class="col-md-3 col-sm-12 col-xs-12">
                       <div class="panel panel-primary text-center no-boder bg-color-green">

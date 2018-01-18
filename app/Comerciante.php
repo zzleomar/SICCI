@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Comerciante extends Model
 {
@@ -20,5 +21,8 @@ class Comerciante extends Model
     }
     public function actividades(){
         return $this->belongsToMany('App\Actividad');
+    }
+    public function DatosUser($id){
+        return User::find($id);
     }
 }

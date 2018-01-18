@@ -15,8 +15,8 @@ class CreateLocalesTable extends Migration
     {
         Schema::create('locales', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombres',255);
-            $table->string('direccion',255);
+            $table->integer('zona_id')->unsigned()->nullable();
+            $table->foreign('zona_id')->references('id')->on('zonas')->onDelete('cascade');
             $table->integer('comerciante_id')->unsigned()->nullable();
             $table->foreign('comerciante_id')->references('id')->on('comerciantes')->onDelete('cascade');
             $table->timestamps();

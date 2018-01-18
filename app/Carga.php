@@ -21,6 +21,9 @@ class Carga extends Model
     public function producto(){
         return $this->belongsTo('App\Producto');
     }
+    public function ventas(){
+        return $this->hasMany('App\Venta');
+    }
 
     
 

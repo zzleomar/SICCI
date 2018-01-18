@@ -29,12 +29,11 @@ Route::group(['prefix' => 'administrador','middleware' => ['auth', 'Administrado
 	Route::get('/', function () {
 	    return view('administrador.index');
 	});
-	Route::get('/comerciantes', function () {
-	    return view('administrador.comerciante');
-	});
 	Route::get('/productos', function () {
 	    return view('administrador.producto');
 	});
+	Route::get('/comerciantes','ComercianteController@comerciantes');
+	Route::get('/comerciantes/ajax/{id}','ComercianteController@Ajaxcomerciantes');
 	Route::post('/comerciantes/registrar','ComercianteController@nuevo');
 
 });

@@ -173,3 +173,9 @@ a{
 #cantidadN{
     text-align: center;
 }
+.panel.panel-primary.text-center.no-boder{
+    border-radius: 15px;
+}
+.panel-body{
+    padding:  20px;
+}

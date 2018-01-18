@@ -17,7 +17,7 @@ class User extends Authenticatable
     protected $table ="users";
     
     protected $fillable = [
-        'nombres', 'apellidos', 'email','cedula','tlf_movil','tlf_casa','direccion','password','tipo'
+        'nombres', 'apellidos', 'email','cedula','tlf_movil','tlf_casa','estado_id','municipio_id','parroquia_id','password','tipo'
     ];
 
     public function comerciante(){
@@ -25,6 +25,15 @@ class User extends Authenticatable
     }
     public function administrador(){
         return $this->hasOne('App\Administrador');
+    }
+    public function estado(){
+        return $this->belongsTo('App\Estado');
+    }
+    public function municipio(){
+        return $this->belongsTo('App\Municipio');
+    }
+    public function parroquia(){
+        return $this->belongsTo('App\Parroquia');
     }
 
 }

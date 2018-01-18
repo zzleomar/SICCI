@@ -9,7 +9,7 @@ class Actividad extends Model
     protected $table ="actividades";
     
     protected $fillable = [
-        'user_id'
+        'comerciante_id',"descripcion"
     ];
     public function comerciantes(){
         return $this->belongsToMany('App\Comerciante');
