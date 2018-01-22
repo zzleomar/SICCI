@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appT')
 
 @section('content')
 <div class="container col-md-4" id="container-sesion">
@@ -14,7 +14,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
-                            <label for="cedula" class="col-md-6 control-label">Nro. Cedula</label>
+                            <label for="cedula" class="col-md-6 control-label">Nro. Cédula</label>
 
                             <div class="col-md-12">
                                 <input id="cedula" type="cedula" class="form-control" name="cedula" value="{{ old('cedula') }}" required autofocus>
@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-6 control-label">Password</label>
+                            <label for="password" class="col-md-6 control-label">Contraceña</label>
 
                             <div class="col-md-12">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -58,7 +58,7 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                    ¿Olvido su Contraseña?
                                 </a>
                             </div>
                         </div>
