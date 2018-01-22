@@ -8,7 +8,7 @@
                   <div class="col-md-12">
 
                             <div class="panel panel-default" >
-                                   <button data-toggle="modal" data-target="#NuevaComercianteModal" class="btn btn-success" >Nuevo</button>
+                                   <button data-toggle="modal" data-target="#NuevaComercianteModal" class="btn btn-success" >Nuevo2</button>
                                     <div class="">
                                         <table class="table" style="margin-bottom: 0px;">
                                           <thead class="thead-light">
