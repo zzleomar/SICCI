@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Estado;
+use App\Municipio;
+use App\Parroquia;
 use App\Comerciante;
 use App\Http\Requests\UserRequest;
 
@@ -33,8 +36,10 @@ class ComercianteController extends Controller
   public function comerciantes(){
   	$comerciantes=Comerciante::all();
 	$datosP=array();
+	$estado=Estado::orderBy('nombre')->get();
+	$municipios=Municipio::orderBy('nombre')->get();
   	foreach ($comerciantes as $comerciante) {
-		$locales=sizeof($comerciante->locales());
+		$locales=sizeof($comerciante->locales);
 		$productos=0;
 		$vendido=0;
 		$locales=sizeof($comerciante->locales);
@@ -56,14 +61,7 @@ class ComercianteController extends Controller
   	return view('administrador.comerciante')
   			->with('comerciantes', $comerciantes)
   			->with('datosP', $datosP);
-  	/*
-  	Cedula
-  	nombre completo
-  	cantidad de locales
-  	cantidad de producto registrados
-  	total de ventas
-
-  	 */
+ 
   }
 
   public function Ajaxcomerciantes($idUser){

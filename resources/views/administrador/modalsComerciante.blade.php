@@ -14,6 +14,20 @@
       
       <div class="modal-body" style="font-weight: 600">
       	<div class="container">
+
+			<div id="collapseComercianteNew" data-children=".item">
+			 <a class="btn btn-primary" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew1" aria-expanded="true" aria-controls="collapseComercianteNew1">
+			   Comerciante
+			    </a>
+			 <a class="btn btn-primary" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew2" aria-expanded="false" aria-controls="collapseComercianteNew2">
+			    Comercio
+			    </a>
+					<div class="item" >
+					</div>
+					<div class="item" >
+					</div>
+				</div>
+
       		<div class="form-row">
 			    <div class="form-group col-md-6">
 			      <label for="inputPassword4">Nro. Cedula</label>

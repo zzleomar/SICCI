@@ -23,6 +23,18 @@ class UserSeeder extends Seeder
                 );
              })
         ;
+        factory(App\User::class,1)->create([
+            'tipo' => 'Coordinador',
+            'cedula' => '23806672',
+            'password' => bcrypt('1234567')
+        ])
+            ->each(function ($u) {
+               $u->Administrador()->save(factory(App\Administrador::class)->make([
+                        'user_id' => $u->id,
+                        ])
+                );
+             })
+        ;
 
         factory(App\User::class,1)->create([
         	'tipo' => 'Comerciante',

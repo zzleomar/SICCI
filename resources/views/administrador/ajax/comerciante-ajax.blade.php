@@ -3,7 +3,7 @@
 			    Información Personal
 			    </a>
 			 <a class="btn btn-primary" data-toggle="collapse" data-parent="#collapseComerciante" href="#collapseComerciante3" aria-expanded="false" aria-controls="collapseComerciante3">
-			    Comercios
+			    Locales
 			    </a>
 			    <a class="btn btn-primary" data-toggle="collapse" data-parent="#collapseComerciante" href="#collapseComerciante2" aria-expanded="false" aria-controls="collapseComerciante2">
 			    Productos
@@ -114,8 +114,8 @@
                                     Inventario
                                 </div> 
                                 <div class="panel-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-hover">
+                                    <div class="table-responsive divtablaAux">
+                                        <table class="table table-striped table-hover tablaAux">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th>Producto</th>

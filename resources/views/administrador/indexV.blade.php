@@ -1,15 +1,14 @@
-@extends('layouts.appT')
-@section('styles')
-{!! Charts::assets() !!}
-@endsection
-@section('content')
+@extends('layouts.app')
 
-<div class="row" style="margin-top: 10px;">
+@section('content')
+<div id="wallpapel"></div>
+<div class="container" id="mainC">
+    <div class="row" style="margin-top: 10px;">
                   <div class="col-md-3 col-sm-12 col-xs-12">
-                      <a href="{{ URL::to('/administrador/comerciantes') }}"><div class="panel panel-primary text-center no-boder bg-color-blue" id="icon-P">
+                      <a href="{{ URL::to('/administrador/comerciantes') }}"><div class="panel panel-primary text-center no-boder bg-color-blue" style="padding: 7px;">
                           <div class="panel-body">
                               <i class="fa fa-user fa-5x" aria-hidden="true"></i>
-                              <h3>1.457</h3>
+                              <h3>1,457</h3>
                           </div>
                           <div class="panel-footer back-footer-blue">
                               Comerciantes
@@ -17,12 +16,11 @@
                           </div>
                       </div></a>
                   </div>
-
                   <div class="col-md-3 col-sm-12 col-xs-12">
-                      <a href="{{ URL::to('/administrador/ventas') }}"><div class="panel panel-primary text-center no-boder bg-color-green" id="icon-P">
+                       <a href="{{ URL::to('/administrador/comerciantes') }}"><div class="panel panel-primary text-center no-boder bg-color-green">
                           <div class="panel-body">
                               <i class="fa fa-money fa-5x"></i>
-                              <h3>52.160 </h3>
+                              <h3>52,160 </h3>
                           </div>
                           <div class="panel-footer back-footer-green">
                               Ventas Registradas
@@ -31,10 +29,10 @@
                       </div></a>
                   </div>
                   <div class="col-md-3 col-sm-12 col-xs-12">
-                      <a href="{{ URL::to('/administrador/productos') }}"><div class="panel panel-primary text-center no-boder bg-color-crim" id="icon-P">
+                      <a href="{{ URL::to('/administrador/productos') }}"><div class="panel panel-primary text-center no-boder bg-color-crim">
                           <div class="panel-body">
                               <i class="fa fa fa-shopping-cart fa-5x"></i>
-                              <h3>1.823 </h3>
+                              <h3>1,823 </h3>
                           </div>
                           <div class="panel-footer back-footer-crim">
                               Productos
@@ -43,10 +41,10 @@
                       </div></a>
                   </div>
                   <div class="col-md-3 col-sm-12 col-xs-12">
-                      <a href="{{ URL::to('/administrador/comercios') }}"><div class="panel panel-primary text-center no-boder bg-color-chart" id="icon-P">
+                      <a href="{{ URL::to('/administrador/productos') }}"><div class="panel panel-primary text-center no-boder bg-color-chart">
                           <div class="panel-body">
                               <i class="fa fa-users fa-5x"></i>
-                              <h3>36.752 </h3>
+                              <h3>36,752 </h3>
                           </div>
                           <div class="panel-footer back-footer-chart">
                               Comercios
@@ -55,12 +53,9 @@
                       </div></a>
                   </div>
               </div>
-                
-                <!-- /.row -->
-
-                <div class="row" style="margin-top: 20px;">
-                 <!-- <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-default">
+              <div class="row" style="margin-top: 20px;">
+                  <div class="col-md-4 col-sm-12 col-xs-12">
+                        <a href="{{ URL::to('/administrador/comerciantes') }}"><div class="panel panel-default">
                             <div class="panel-heading">
                                 Notificaciones
                             </div>
@@ -92,11 +87,8 @@
                                     <a href="#">Ver más<i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div></a>
 
-                    </div>-->
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        {!! $chartjs->render() !!}
                     </div>
 
 
@@ -118,49 +110,70 @@
                                                     <th>Costo de Venta</th>
                                                 </tr>
                                             </thead>
-                                            @foreach($recientes as $reciente)
-                                            @php
-                                              $personal=$reciente->local->comerciante->DatosUser($reciente->local->comerciante->user_id);
-                                            @endphp
                                             <tbody>
-                                                <tr class="col-hover" data-toggle="modal" data-target="#ProductoREVIWModal" onclick="modalCarga('{{$reciente->id}}')">
-                                                    <td>{{ $personal->nombres." ".$personal->apellidos }}</td>
-                                                    <td>{{ $reciente->producto->nombre }}</td>
-                                                    <td>{{ $reciente->cantidad }}</td>
-                                                    <td>{{ number_format($reciente->precio_adquirido, 2, ",", ".") }}</td>
-                                                    <td>{{ number_format($reciente->precio_venta, 2, ",", ".") }}</td>
+                                                <tr class="col-hover" data-toggle="modal" data-target="#ProductoREVIWModal">
+                                                    <td>John Doe</td>
+                                                    <td>Sardina Enlatada</td>
+                                                    <td>100 uni.</td>
+                                                    <td>35,800</td>
+                                                    <td>46,000</td>
+                                                </tr>
+                                            </tbody><tbody>
+                                                <tr class="col-hover" data-toggle="modal" data-target="#ProductoREVIWModal">
+                                                    <td>Kimsila Orieal</td>
+                                                    <td>maiz enlatado</td>
+                                                    <td>80 uni.</td>
+                                                    <td>54,800</td>
+                                                    <td>80,000</td>
+                                                </tr>
+                                            </tbody><tbody>
+                                                <tr class="col-hover" data-toggle="modal" data-target="#ProductoREVIWModal">
+                                                    <td>Richard Doe</td>
+                                                    <td>Latas de pintura</td>
+                                                    <td>120 uni.</td>
+                                                    <td>134,800</td>
+                                                    <td>150,000</td>
+                                                </tr>
+                                            </tbody><tbody>
+                                                <tr class="col-hover" data-toggle="modal" data-target="#ProductoREVIWModal">
+                                                    <td>Jacob Dere</td>
+                                                    <td>Carton de huevos</td>
+                                                    <td>100 uni.</td>
+                                                    <td>185,800</td>
+                                                    <td>210,000</td>
+                                                </tr>
+                                            </tbody><tbody>
+                                                <tr class="col-hover" data-toggle="modal" data-target="#ProductoREVIWModal">
+                                                    <td>John Doe</td>
+                                                    <td>Harina de maiz</td>
+                                                    <td>300 uni.</td>
+                                                    <td>34,800</td>
+                                                    <td>50,000</td>
+                                                </tr>
+                                            </tbody><tbody>
+                                                <tr class="col-hover" data-toggle="modal" data-target="#ProductoREVIWModal">
+                                                    <td>John Doe</td>
+                                                    <td>Harina de maiz</td>
+                                                    <td>300 uni.</td>
+                                                    <td>34,800</td>
+                                                    <td>50,000</td>
                                                 </tr>
                                             </tbody>
-                                            @endforeach
                                         </table>
                                     </div>
                                 </div>
-
-                          {!! $recientes->render() !!}
-
-                                  
+                                  <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center pagination-sm">
+                                <li class="page-item"><a class="page-link" href="#">Previo</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Sig</a></li>
+                                </ul>
+                                </nav>
                             </div>
                         </div>
               </div>
-                <!-- /.row -->
-
-            </div>
-            </div>
-        <!-- /#page-wrapper --> 
               @include('administrador.modalsProducto')
-@endsection
-            
-
-@section('scripts')
-<script type="text/javascript">
-
-function modalCarga(idC){
-  var url="{{ URL::to('/administrador/carga/reciente/ajax') }}/"+idC; 
-       // alert(url);
-         $.get(url,function(data){ 
-            $('#ajax-carga-reciente').empty().html(data);
-          });
-}
-
-</script>
+</div>
 @endsection

@@ -19,5 +19,9 @@ class Producto extends Model
         return $this->hasMany('App\Carga');
     }
 
+    public function scoperecientes($query, $inicio, $actual){
+        return $query->whereDate('created_at','>=', $inicio->toDateTimeString())->whereDate('created_at','<=', $actual->toDateTimeString())->get();
+    }
+
 
 }

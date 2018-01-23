@@ -20,4 +20,8 @@ class Local extends Model
      public function zona(){
         return $this->belongsTo('App\Zona');
     }
+    public function direccion(){
+        $zona=Zona::find($this->zona_id);
+        return "Edo. ".$zona->estado->nombre.", Municipio ".$zona->municipio->nombre.", ".$zona->parroquia->nombre;
+    }
 }

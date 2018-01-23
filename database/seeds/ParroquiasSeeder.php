@@ -137,8 +137,15 @@ DB::table('parroquias')->insert([
 	            'nombre' => 'San Juan',
 	            'municipio_id' => '9'
 	        ]);
-
-DB::table('parroquias')->insert([
+	        DB::table('parroquias')->insert([
+	            'nombre' => 'Campo Elías',
+	            'municipio_id' => '10'
+	        ]);
+	        DB::table('parroquias')->insert([
+	            'nombre' => 'Tunapui',
+	            'municipio_id' => '10'
+	        ]);
+			DB::table('parroquias')->insert([
 	            'nombre' => 'El Pilar',
 	            'municipio_id' => '11'
 	        ]);

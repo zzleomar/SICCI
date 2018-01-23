@@ -24,6 +24,9 @@ class Carga extends Model
     public function ventas(){
         return $this->hasMany('App\Venta');
     }
+    public function scoperecientes($query, $inicio, $actual){
+        return $query->whereDate('created_at','>=', $inicio->toDateTimeString())->whereDate('created_at','<=', $actual->toDateTimeString());
+    }
 
     
 
