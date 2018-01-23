@@ -29,12 +29,18 @@ Route::group(['prefix' => 'administrador','middleware' => ['auth', 'Administrado
 	Route::get('/', function () {
 	    return view('administrador.index');
 	});
+	Route::get('/','AdministradorController@index');
+
 	Route::get('/productos', function () {
 	    return view('administrador.producto');
+	});
+	Route::get('/locales', function () {
+	    return view('administrador.locales');
 	});
 	Route::get('/comerciantes','ComercianteController@comerciantes');
 	Route::get('/comerciantes/ajax/{id}','ComercianteController@Ajaxcomerciantes');
 	Route::post('/comerciantes/registrar','ComercianteController@nuevo');
+	Route::get('/carga/reciente/ajax/{id}','CargasController@AjaxReciente');
 
 });
 

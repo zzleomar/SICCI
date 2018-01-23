@@ -21,8 +21,8 @@
                                     </div>                                  
                                             
                                 <div class="" style="    margin-top: 0px;padding-top: 0px;">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-dark table-hover">
+                                    <div class="table-responsive divtablaAux">
+                                        <table class="table table-striped table-dark table-hover tablaAux">
                                             <thead>
                                                 <tr>
                                                     <th>Nro. Cedula</th>
@@ -70,9 +70,16 @@
 </div>
 
 <script type="text/javascript">
+    $(document).ready(function(){
+  var altura = $(document).height();
+  altura=altura-380;
+  altura=altura+"px";
+  $(".divtablaAux").css("min-height",altura);
+});
+  
     function CargarComerciante(idUser){
         var url="{{ URL::to('/administrador/comerciantes/ajax') }}/"+idUser; 
-      alert(url);
+      //alert(url);
         $.get(url,function(data){ 
           $('#ModalAjaxModificarComerciante').empty().html(data);
         }); 

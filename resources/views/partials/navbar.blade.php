@@ -1,62 +1,144 @@
-<nav class="navbar navbar-dark bg-dark" id="navPerso">
-            @guest
-                        {{--  Links de autenticacion  --}} 
-                <ul class="nav justify-content-end" style="margin-top: 5px;margin-right: 10px;">
+<!-- Navigation -->
+            <!-- Brand and toggle get grouped for better mobile display -->
+          @guest
+              <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">SICCI</a>
+                  </div>
+            </nav>
 
-                <li class="nav-item">
-                <a class="navbar-brand" href="#" id="titulo">SICCI</a>
-              </li>
-              
-            </ul>
-            @else
-            <ul class="nav nav-pills flex-column flex-sm-row " id="navP">
-                @if( Auth::user()->tipo=='Administrador')
-                <li class="nav-item">
-                <a class="navbar-brand" href="{{ URL::to('/administrador') }}" id="titulo">SICCI</a>
-              </li>
-                <li class="nav-item d-flex align-content-center flex-wrap" id="adminComerciantes">
-                    <a class="flex-sm-fill text-sm-center nav-link" href="{{ URL::to('/administrador/comerciantes') }}"> Comerciantes</a>
+           @else
+    <div id="wrapper">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Menú de Navegación</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SICCI</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Nueva carga <span class="label label-primary">12 min</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Actualización <span class="label label-success"> 35 min</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Nueva venta <span class="label label-info">37 min</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Estacionamiento al limite <span class="label label-danger">1 hra</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">Ver más</a>
+                        </li>
+                    </ul>
                 </li>
-                    <li class="nav-item d-flex align-content-center flex-wrap" id="adminProductos"><a class="flex-sm-fill text-sm-center nav-link" href="{{ URL::to('/administrador/productos') }}">Productos</a></li>
-                   <li class="nav-item d-flex align-content-center flex-wrap"> <a class="flex-sm-fill text-sm-center nav-link" href="#">Ventas</a>
-                  </li>
-                  <li class="nav-item d-flex align-content-center flex-wrap"> <a class="flex-sm-fill text-sm-center nav-link" href="#">Zonas de Comercio
-                  </a>
-                  </li>
-                  @else
-                  <li class="nav-item d-flex align-content-center flex-wrap">
-                    <a class="flex-sm-fill text-sm-center nav-link" href="#">Cargar Producto</a>
-                  </li>
-                  <li class="nav-item d-flex align-content-center flex-wrap">
-                    <a class="flex-sm-fill text-sm-center nav-link" href="#">Registrar Venta</a>
-                  </li>
-                  @endif
-                </ul>
-                <ul class="nav justify-content-end" style="margin-top: 5px;margin-right: 10px;">
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                          
-                                {{ Auth::user()->tipo.": ".Auth::user()->nombres." ".Auth::user()->apellidos }}                              
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="userDropdown">                          <a href="#" class="dropdown-item">
-                            <a href="#" class="dropdown-item">
-                                <i class="fa fa-user" aria-hidden="true"></i> Perfil                  
-                            </a>
-                            <a href="#" class="dropdown-item">
-                                <i class="fa fa-lock" aria-hidden="true"></i> Cambiar contraseña       
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();" class="dropdown-item">
-                                <i class="fa fa-power-off" aria-hidden="true"></i> Cerrar sesión
-                            </a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                                   
+                                    {{ Auth::user()->tipo.": ".Auth::user()->nombres." ".Auth::user()->apellidos }}  
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </div>
+
+                        <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Productos</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configuración</a>
+                        </li>
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();" class="dropdown-item">
+                                    <i class="fa fa-power-off" aria-hidden="true"></i> Cerrar sesión
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i>Incio</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL::to('/administrador/comerciantes')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Comerciantes</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL::to('/administrador/locales')}}"><i class="fa fa-bars fa-bar-chart-o"></i> Locales</a>
+                    </li>
+                    <li>
+                        <a href="{{ URL::to('/administrador/productos')}}"><i class="fa fa-fw fa-table"></i> Productos</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-edit"></i> Estacionamiento</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#zonasCollapse"><i class="fa fa-fw fa-arrows-v"></i>Zonas de Comercio<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="zonasCollapse" class="collapse">
+                            <li>
+                                <a href="#">Ver</a>
+                            </li>
+                            <li>
+                                <a href="#">Registrar</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#actividadCollapse"><i class="fa fa-fw fa-arrows-v"></i>Actividades de Comercio<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="actividadCollapse" class="collapse">
+                            <li>
+                                <a href="#">Ver</a>
+                            </li>
+                            <li>
+                                <a href="#">Registrar</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-                    @endguest
-             </nav>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Administrador <small></small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Inicio
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+          @endguest
+
+
+        

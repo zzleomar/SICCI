@@ -179,3 +179,8 @@ a{
 .panel-body{
     padding:  20px;
 }
+.divtablaAux{
+    overflow:scroll;
+    height:450px;
+    clear: both;
+}

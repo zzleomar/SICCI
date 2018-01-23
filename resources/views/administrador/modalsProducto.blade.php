@@ -3,102 +3,13 @@
 	<div class="modal fade bd-example-modal-lg" id="ProductoREVIWModal" data-backdrop="static">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-        <div class="modal-header  bg-success text-white">
+        <div class="modal-header back-footer-green text-white">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h5 class="modal-title" id="exampleModalLabel" style="font-size: 25px;font-weight: 700;">Comerciante John Dere</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
         </div>
       
-      <div class="modal-body" style="font-weight: 600">
-
-		<div id="collapseProductoNew" data-children=".item">
-			 <a class="btn btn-primary" data-toggle="collapse" data-parent="#collapseProductoNew" href="#collapseProductoNew1" aria-expanded="true" aria-controls="collapseProductoNew1">
-			   Producto
-			    </a>
-			 <a class="btn btn-primary" data-toggle="collapse" data-parent="#collapseProductoNew" href="#collapseProductoNew2" aria-expanded="false" aria-controls="collapseProductoNew2">
-			    Comerciante
-			    </a>
-					<div class="item" >
-		        		<div id="collapseProductoNew1" class="collapse show" role="tabpanel">
-						  <div class="card card-body">
-					  <div class="row">
-						<div class="form-group col-md-12">
-					      <label for="inputState">Proveedor</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputCity" placeholder="Sector/Avenida/Apartamento" value="Inverciones Tokata C.a">
-						</div>
-					</div>
-						  	<div class="form-row">
-					    <div class="form-group col-md-6">
-					      <label for="inputPassword4">Producto</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputPassword4" placeholder="ejem. 23806671" value="Harina de maiz">
-					    </div>
-					    <div class="form-group col-md-6">
-					      <label for="inputEmail4">Cantidad</label>
-					      <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="Email" value="320 Unidades" readonly>
-					    </div>
-					  </div>
-					  <div class="form-row">
-					    <div class="form-group col-md-6">
-					      <label for="inputEmail4">Costo de Adquisición</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputEmail4" placeholder="Ingrese Nombre" value="34,800">
-					    </div>
-					    <div class="form-group col-md-6">
-					      <label for="inputPassword4">Costo de Venta</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputPassword4" placeholder="Ingrese Apelido" value="50,000">
-					    </div>
-					  </div>
-
-					<div class="row">
-						<div class="form-group col-md-8">
-					      <label for="inputState">Ubicación del Comercio</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputCity" placeholder="Sector/Avenida/Apartamento" value="Estado Sucre, Montes Cumanacoa">
-						</div>
-						<div class="form-group col-md-4">
-					      <label for="inputCity">Zona</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputCity" value="Mercado Municipal">
-					    </div>
-					</div>
-				  </div>
-				</div>
-			</div>
-			<div class="item" >
-        		<div id="collapseProductoNew2" class="collapse" role="tabpanel">
-					<div class="card card-body">
-						  	<div class="form-row">
-					    <div class="form-group col-md-6">
-					      <label for="inputPassword4">Nro. Cedula</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputPassword4" placeholder="ejem. 23806671" value="23806671">
-					    </div>
-					    <div class="form-group col-md-6">
-					      <label for="inputEmail4">Email</label>
-					      <input type="email" class="form-control form-control-lg" id="inputEmail4" placeholder="Email" value="dmy.leomar@gmail.com" readonly>
-					    </div>
-					  </div>
-					  <div class="form-row">
-					    <div class="form-group col-md-6">
-					      <label for="inputEmail4">Nombre</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputEmail4" placeholder="Ingrese Nombre" value="Leomar Alexander">
-					    </div>
-					    <div class="form-group col-md-6">
-					      <label for="inputPassword4">Apellido</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputPassword4" placeholder="Ingrese Apelido" value="Esparragoza M.">
-					    </div>
-					  </div>
-					  <div class="form-row">
-					    <div class="form-group col-md-8">
-					      <label for="inputState">Ubicación</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputCity" placeholder="Sector/Avenida/Apartamento" value="Estado Sucre, Montes Cumanacoa">
-					    </div>
-						<div class="form-group col-md-4">
-					      <label for="inputCity">Carnet de la Patria</label>
-					      <input type="text" readonly class="form-control form-control-lg" id="inputCity" placeholder="Nro. Serial" value="0001242124">
-					    </div>
-					  </div>
-				  </div>
-			</div>
-		</div>
-
+      <div class="modal-body" id="ajax-carga-reciente" style="font-weight: 600">
+      	
 
       		
       </div>
@@ -117,11 +28,9 @@
 <div class="modal fade bd-example-modal-lg" id="NotificacionesModal" data-keyboard="false" data-backdrop="static">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-        <div class="modal-header bg-success text-white">
+        <div class="modal-header  back-footer-green text-white">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h6 class="" id="exampleModalLabel" style="font-size: 25px;font-weight: 700;">Notificación</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
         </div>
       
       <div class="modal-body" style="font-weight: 600">

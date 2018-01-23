@@ -74,14 +74,6 @@ class municipioSeeder extends Seeder
             'nombre' => 'Libertador',
             'estado_id' => '1'
         ]);
-        	DB::table('parroquias')->insert([
-	            'nombre' => 'Campo Elías',
-	            'municipio_id' => '10'
-	        ]);
-	        DB::table('parroquias')->insert([
-	            'nombre' => 'Tunapui',
-	            'municipio_id' => '10'
-	        ]);
 
 
         DB::table('municipios')->insert([
