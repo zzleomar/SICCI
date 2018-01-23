@@ -5,107 +5,115 @@
     <div class="modal fade bd-example-modal-lg" id="NuevaComercianteModal" data-keyboard="false" data-backdrop="static">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-        <div class="modal-header bg-success text-white">
+        <div class="modal-header back-footer-green  text-white">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h6 class="" id="exampleModalLabel" style="font-size: 25px;font-weight: 700;">Nuevo Comerciante</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
         </div>
       
-      <div class="modal-body" style="font-weight: 600">
-      	<div class="container">
+      	<div class="modal-body" style="font-weight: 600">
+			<div class="panel-group" id="collapseComercianteNew" role="tablist" aria-multiselectable="true">
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingOne">
+				      <h4 class="panel-title">
+				        <a  class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew1" aria-expanded="true" aria-controls="collapseComercianteNew1">
+			  				 Comerciante
+				        </a>
+				        <a class="collapsed btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew2" aria-expanded="false" aria-controls="collapseComercianteNew2">
+							    Local
+				        </a>
+				        <a class="collapsed btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew3" aria-expanded="false" aria-controls="collapseComercianteNew3">
+							    Producto
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseComercianteNew1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="panel-body">
+				      	<div class="form-row">
+						    <div class="form-group col-md-6">
+						      <label for="inputPassword4">Nro. Cedula</label>
+						      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="ejem. 23806671" name="cedula" required>
+						      @if ($errors->has('cedula'))
+			                    <span class="help-block">
+			                        <strong>Este número de Cedula esta registrado</strong>
+			                    </span>
+			                  @endif
+						    </div>
+						    <div class="form-group col-md-6">
+						      <label for="inputEmail4">Email</label>
+						      <input type="email" class="form-control form-control-lg" id="inputEmail4" placeholder="ejemplo@correo.com" name="email" required>
+						      @if ($errors->has('email'))
+			                    <span class="help-block">
+			                        <strong>Este correo se encuentra registrado</strong>
+			                    </span>
+			                  @endif
+						    </div>
+						  </div>
+						  <div class="form-row">
+						    <div class="form-group col-md-6">
+						      <label for="inputEmail4">Nombre</label>
+						      <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="Ingrese Nombre" name="nombre" required>
+						    </div>
+						    <div class="form-group col-md-6">
+						      <label for="inputPassword4">Apellido</label>
+						      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="Ingrese Apelido" name="apellido" required>
+						    </div>
+						  </div>
+						  <div class="form-row">
+						    <div class="form-group col-md-6">
+						      <label for="inputEmail4">Tlf Movil</label>
+						      <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="04145682375" name="nombre" required>
+						    </div>
+						    <div class="form-group col-md-6">
+						      <label for="inputPassword4">Tlf fijo</label>
+						      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="02932344563" name="apellido" required>
+						    </div>
+						  </div>
+							<div class="form-row">
+						    <div class="form-group col-md-4">
+						      <label for="inputState">Estado</label>
+						      <select id="inputState" class="form-control form-control-lg" name="estado" required>
+						        <option value="1" selected>Sucre</option>
+						      </select>
+						    </div>
+						    <div class="form-group col-md-4" id="municipioAjaxC">
+						      <label for="selectmun">Municipio</label>
+						      <select class="form-control form-control-lg" name="municipio" required id="selectmun">
+						        <option selected>Seleccione ...</option>
+						        @foreach($estado->municipios as $municipio)
+						       		 <option value="{{ $municipio->id}}">{{ $municipio->nombre}}</option>
+						        @endforeach
+						      </select>
+						    </div>
+							<div class="form-group col-md-4" id="parroquiaAjaxC">
+						      <!--AJAX PARROQUIA -->
+						    </div>
+						</div>
+						  <div class="form-row" style="display: none;" id="ubiAjax">
+						    <div class="form-group col-md-8" >
+						      <label for="inputState">Ubicación</label>
+						      <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="Sector/Avenida/Apartamento" name="ubicacion" required>
+						    </div>
+							<div class="form-group col-md-4">
+						      <label for="inputCity">Carnet de la Patria</label>
+						      <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="Nro. Serial" name="carnet" required>
+						    </div>
+						  </div>
+				      </div>
+				  </div>
+				  <div id="collapseComercianteNew2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="panel-body">
+				      	<h1>DATOS DEL LOCAL</h1>
+				      </div>
+				  </div>
+				  <div id="collapseComercianteNew3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="panel-body">
+				      	<h1>DATOS PARA PRODUCTOS</h1>
 
-			<div id="collapseComercianteNew" data-children=".item">
-			 <a class="btn btn-primary" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew1" aria-expanded="true" aria-controls="collapseComercianteNew1">
-			   Comerciante
-			    </a>
-			 <a class="btn btn-primary" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew2" aria-expanded="false" aria-controls="collapseComercianteNew2">
-			    Comercio
-			    </a>
-					<div class="item" >
-					</div>
-					<div class="item" >
-					</div>
-				</div>
-
-      		<div class="form-row">
-			    <div class="form-group col-md-6">
-			      <label for="inputPassword4">Nro. Cedula</label>
-			      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="ejem. 23806671" name="cedula" required>
-			      @if ($errors->has('cedula'))
-                    <span class="help-block">
-                        <strong>Este número de Cedula esta registrado</strong>
-                    </span>
-                  @endif
-			    </div>
-			    <div class="form-group col-md-6">
-			      <label for="inputEmail4">Email</label>
-			      <input type="email" class="form-control form-control-lg" id="inputEmail4" placeholder="ejemplo@correo.com" name="email" required>
-			      @if ($errors->has('email'))
-                    <span class="help-block">
-                        <strong>Este correo se encuentra registrado</strong>
-                    </span>
-                  @endif
-			    </div>
-			  </div>
-			  <div class="form-row">
-			    <div class="form-group col-md-6">
-			      <label for="inputEmail4">Nombre</label>
-			      <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="Ingrese Nombre" name="nombre" required>
-			    </div>
-			    <div class="form-group col-md-6">
-			      <label for="inputPassword4">Apellido</label>
-			      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="Ingrese Apelido" name="apellido" required>
-			    </div>
-			  </div>
-			  <div class="form-row">
-			    <div class="form-group col-md-6">
-			      <label for="inputEmail4">Tlf Movil</label>
-			      <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="04145682375" name="nombre" required>
-			    </div>
-			    <div class="form-group col-md-6">
-			      <label for="inputPassword4">Tlf fijo</label>
-			      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="02932344563" name="apellido" required>
-			    </div>
-			  </div>
-				<div class="form-row">
-			    <div class="form-group col-md-4">
-			      <label for="inputState">Estado</label>
-			      <select id="inputState" class="form-control form-control-lg" name="estado" required>
-			        <option selected>Seleccione ...</option>
-			        <option>Anzoateguis</option>
-			        <option>Amazonas</option>
-			        <option>Bolivar</option>
-			        <option>Sucre</option>
-			        <option>...</option>
-			      </select>
-			    </div>
-			    <div class="form-group col-md-4">
-			      <label for="inputState">Municipio</label>
-			      <select id="inputState" class="form-control form-control-lg" name="municipio" required>
-			        <option selected>Seleccione ...</option>
-			        <option>Montes</option>
-			        <option>Sucre</option>
-			        <option>Mejias</option>
-			        <option>...</option>
-			      </select>
-			    </div>
-				<div class="form-group col-md-4">
-			      <label for="inputPassword4">Ciudad</label>
-			      <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="ciudad" name="ciudad" required>
-			    </div>
-			</div>
-			  <div class="form-row">
-			    <div class="form-group col-md-8">
-			      <label for="inputState">Ubicación</label>
-			      <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="Sector/Avenida/Apartamento" name="ubicacion" required>
-			    </div>
-				<div class="form-group col-md-4">
-			      <label for="inputCity">Carnet de la Patria</label>
-			      <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="Nro. Serial" name="carnet" required>
-			    </div>
-			  </div>
-      </div></div>
+				      </div>
+				  </div>
+		</div></div>
+      		
+      </div>
     <div class="modal-footer">
     <button type="submit" class="btn btn-lg btn-primary" id="BotonGuardarComerciante">Registrar</button>
     </div>

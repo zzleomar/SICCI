@@ -10,7 +10,7 @@ class Estado extends Model
         'nombre'
     ];
 
-    public function municipio(){
+    public function municipios(){
         return $this->hasMany('App\Municipio');
     }
     public function zonas(){

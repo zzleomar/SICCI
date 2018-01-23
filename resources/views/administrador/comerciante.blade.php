@@ -73,5 +73,19 @@ function CargarComerciante(idUser){
         }); 
     }
 
+    $(document).ready(function(){
+        $("#selectmun").change(function(){
+            var op = $("#selectmun option:selected").val();
+            var url="{{ URL::to('/direccion/parroquias') }}/"+op; 
+             //alert(url);
+                $.get(url,function(data){ 
+                  $('#parroquiaAjaxC').empty().html(data);
+                }); 
+            });
+        });
+        $("#slectParroquia").change(function(){
+             $("#ubiAjax").css("display", "initial"); 
+        });
+
 </script>
 @endsection
