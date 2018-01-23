@@ -20,12 +20,12 @@ class AdministradorController extends Controller
     	$actual=Carbon::now();
     	$actual2=Carbon::now();
     	$actual2->subDays(7);
-    	$recientes=Carga::recientes($actual2,$actual)->paginate(4);
+    	$recientes=Carga::recientes($actual2,$actual)->paginate(10);
         $chartjs = app()->chartjs
         ->name('lineChartTest')
         ->type('line')
         ->size(['width' => 400, 'height' => 200])
-        ->labels(['10', '11', '12', '13', '14', '15', '16'])
+        ->labels(['10', '11', '12', '13', '14', '15', '16','17', '18', '19', '20', '21', '22', '23'])
         ->datasets([
             [
                 "label" => "Disponibilidad de Estacionamiento",
@@ -35,7 +35,7 @@ class AdministradorController extends Controller
                 "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
                 "pointHoverBackgroundColor" => "#fff",
                 "pointHoverBorderColor" => "rgba(220,220,220,1)",
-                'data' => [65, 59, 80, 81, 56, 55, 40],
+                'data' => [65, 59, 80, 81, 56, 65, 59,5, 59, 10, 6, 4, 2, 00],
             ]
         ])
         ->options([]);

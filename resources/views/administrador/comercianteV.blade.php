@@ -1,11 +1,14 @@
-@extends('layouts.appT')
+@extends('layouts.app')
 
 @section('content')
 
-	<div class="col-md-12">
+<div id="wallpapel"></div>
+<div class="container" id="mainC">
+	
+                  <div class="col-md-12">
 
                             <div class="panel panel-default" >
-                                   <button data-toggle="modal" data-target="#NuevaComercianteModal" class="btn btn-success" >Nuevo</button>
+                                   <button data-toggle="modal" data-target="#NuevaComercianteModal" class="btn btn-success" >Nuevo2</button>
                                     <div class="">
                                         <table class="table" style="margin-bottom: 0px;">
                                           <thead class="thead-light">
@@ -50,28 +53,37 @@
                                         </table>
                                     </div>
                                 </div>
-                          {!! $comerciantes->render() !!}
-                             
+                                <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center pagination-sm">
+                                <li class="page-item"><a class="page-link" href="#">Previo</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Sig</a></li>
+                                </ul>
+                                </nav>
                             </div>
 
                         </div>
+
 @include('administrador.modalsComerciante')
-
 </div>
-        <!-- /#page-wrapper --> 
-@endsection
-            
 
-@section('scripts')
 <script type="text/javascript">
-
-function CargarComerciante(idUser){
+    $(document).ready(function(){
+  var altura = $(document).height();
+  altura=altura-380;
+  altura=altura+"px";
+  $(".divtablaAux").css("min-height",altura);
+});
+  
+    function CargarComerciante(idUser){
         var url="{{ URL::to('/administrador/comerciantes/ajax') }}/"+idUser; 
       //alert(url);
         $.get(url,function(data){ 
           $('#ModalAjaxModificarComerciante').empty().html(data);
         }); 
     }
-
 </script>
+
 @endsection

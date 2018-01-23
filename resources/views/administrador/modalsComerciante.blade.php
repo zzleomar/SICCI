@@ -121,11 +121,10 @@
 	<div class="modal fade bd-example-modal-lg" id="ComercianteModal" data-backdrop="static">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-        <div class="modal-header  bg-success text-white">
+        <div class="modal-header back-footer-green text-white">
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h5 class="modal-title" id="exampleModalLabel" style="font-size: 25px;font-weight: 700;">Comerciante John Dere</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
         </div>
       
       <div class="modal-body" style="font-weight: 600" id="ModalAjaxModificarComerciante">

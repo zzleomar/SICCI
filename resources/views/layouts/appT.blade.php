@@ -30,7 +30,11 @@
         @include('partials.navbar')
         
                 <!-- /.row -->
-        @yield('content')
+                <div id="contenedorPersonal">
+                    
+                        @yield('content')   
+
+                </div>
 
             <!-- /.container-fluid -->
 
@@ -54,6 +58,7 @@
  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> -->
     <script src="{{ asset('js/personal.js') }}"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
     
     
 

@@ -10,6 +10,12 @@ use App\Parroquia;
 use App\Comerciante;
 use App\Http\Requests\UserRequest;
 
+
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+
 class ComercianteController extends Controller
 {
   public function nuevo(Request $datos){
@@ -34,7 +40,7 @@ class ComercianteController extends Controller
   }
   
   public function comerciantes(){
-  	$comerciantes=Comerciante::all();
+  	$comerciantes=Comerciante::paginate(10);
 	$datosP=array();
 	$estado=Estado::orderBy('nombre')->get();
 	$municipios=Municipio::orderBy('nombre')->get();
@@ -85,6 +91,10 @@ class ComercianteController extends Controller
 			}
 		}
   	}
+  	//paginar el array
+  /*	$page = Input::get('page');
+    $productos = new LengthAwarePaginator($productos, $total = sizeof($productos), 10, $page);
+    $productos->setPath('comerciantes/ajax/'.$idUser); */
   	return view('administrador.ajax.comerciante-ajax')
   			->with("productos", $productos)
   			->with("user",$user)
