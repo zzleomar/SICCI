@@ -51,6 +51,7 @@ Route::group(['prefix' => 'direccion','middleware' => ['auth']],function(){
 	Route::get('/zonas/{id}','DireccionController@ajaxzona');
 });
 
+	Route::get('/producto/{id}','ProductoController@ajaxproducto')->middleware('auth');
 
 
 Route::group(['prefix' => 'comerciante','middleware' => ['auth', 'ComercianteRole']],function(){

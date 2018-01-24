@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Estado;
 use App\Carga;
+use App\Familia;
 use App\Municipio;
 use App\Parroquia;
 use App\Comerciante;
@@ -42,7 +43,8 @@ class ComercianteController extends Controller
   
   public function comerciantes(){
   	$comerciantes=Comerciante::paginate(10);
-	$datosP=array();
+  	$familias=Familia::all();
+  	$datosP=array();
 	/*$estado=Estado::orderBy('nombre')->get();
 	$municipios=Municipio::orderBy('nombre')->get();*/
 	$estado=Estado::find(1);
@@ -69,7 +71,8 @@ class ComercianteController extends Controller
   	return view('administrador.comerciante')
   			->with('comerciantes', $comerciantes)
   			->with('datosP', $datosP)
-  			->with('estado',$estado);
+  			->with('estado',$estado)
+  			->with('familias',$familias);
  
   }
 

@@ -85,7 +85,7 @@
                         <a href="{{ URL::to('/administrador/comerciantes')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Comerciantes</a>
                     </li>
                     <li  id="LocalAdmin">
-                        <a href="{{ URL::to('/administrador/locales')}}"><i class="fa fa-bars fa-bar-chart-o"></i> Locales</a>
+                        <a href="{{ URL::to('/administrador/local')}}"><i class="fa fa-bars fa-bar-chart-o"></i> Locales</a>
                     </li>
                     <li  id="ProductosAdmin">
                         <a href="{{ URL::to('/administrador/productos')}}"><i class="fa fa-fw fa-table"></i> Productos</a>

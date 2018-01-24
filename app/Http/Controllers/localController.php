@@ -25,7 +25,7 @@ class localController extends Controller
         $json=array();
         foreach ($locales as $local) {
         	$direccion=$local->direccion();
-        	$user=$local->comerciante->DatosUser($local->comerciante->id);
+        	$user=$local->comerciante->DatosUser($local->comerciante->user_id);
         	$cedula=$user->cedula.' - '.$user->nombres." ".$user->apellidos;
         	$id=$local->id;
         	$reg=array('cedula' => $cedula, 'direccion' => $direccion, 'id' => $id);

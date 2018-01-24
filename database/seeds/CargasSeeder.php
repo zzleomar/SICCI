@@ -29,7 +29,7 @@ class CargasSeeder extends Seeder
         	'nombre' => 'Textiles',
 	    ]);
 	    DB::table('familias')->insert([
-        	'nombre' => 'Utencilios Comunes'
+        	'nombre' => 'Utensilios Comunes'
 	    ]);
 	    DB::table('familias')->insert([
         	'nombre' => 'Producto de higiene'

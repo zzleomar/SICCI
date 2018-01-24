@@ -15,7 +15,7 @@ $(document).ready(function(){
     case '/administrador/comerciantes':
       $('#ComercianteAdmin').addClass('active');
       break;
-    case '/administrador/locales':
+    case '/administrador/local':
       $('#LocalAdmin').addClass('active');
       break;
     case '/sucursal':

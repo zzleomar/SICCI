@@ -93,8 +93,10 @@
                   $('#parroquiaAjaxC2').empty().html(data);
                 }); 
             });
+
         
      });
+
         
 	</script>
 <script src="/js/locales-ajax.js"></script> 

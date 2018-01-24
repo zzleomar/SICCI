@@ -15,13 +15,13 @@
 				  <div class="panel panel-default">
 				    <div class="panel-heading" role="tab" id="headingOne">
 				      <h4 class="panel-title">
-				        <a  class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew1" aria-expanded="true" aria-controls="collapseComercianteNew1">
+				        <a  class="btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew1" aria-expanded="true" aria-controls="collapseComercianteNew1" onclick="cambio('1')">
 			  				 Comerciante
 				        </a>
-				        <a class="collapsed btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew2" aria-expanded="false" aria-controls="collapseComercianteNew2">
+				        <a class="collapsed btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew2" aria-expanded="false" aria-controls="collapseComercianteNew2" onclick="cambio('2')">
 							    Local
 				        </a>
-				        <a class="collapsed btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew3" aria-expanded="false" aria-controls="collapseComercianteNew3">
+				        <a class="collapsed btn btn-primary" role="button" data-toggle="collapse" data-parent="#collapseComercianteNew" href="#collapseComercianteNew3" aria-expanded="false" aria-controls="collapseComercianteNew3" onclick="cambio('3')">
 							    Producto
 				        </a>
 				      </h4>
@@ -102,20 +102,55 @@
 				  </div>
 				  <div id="collapseComercianteNew2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 				      <div class="panel-body">
-				      	<h1>DATOS DEL LOCAL</h1>
+				      	<h4>Introdusca la información del local</h4>
+				      	<div class="form-group col-md-4">
+                  <label for="inputState">Estado</label>
+                  <select id="inputState" class="form-control form-control-lg" name="estado" required>
+                    <option value="1" selected>Sucre</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4" id="municipioAjaxC">
+                  <label for="selectmun">Municipio</label>
+                  <select class="form-control form-control-lg" name="municipio" required id="selectmun2">
+                    <option selected>Seleccione ...</option>
+                    @foreach($estado->municipios as $municipio)
+                       <option value="{{ $municipio->id}}">{{ $municipio->nombre}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              <div class="form-group col-md-4" id="parroquiaAjaxC2">
+                  <!--AJAX PARROQUIA -->
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4" id="zonaAjaxL">
+                  <!--AJAX ZONA -->
+                </div>
+    
+              </div>
 				      </div>
 				  </div>
 				  <div id="collapseComercianteNew3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 				      <div class="panel-body">
-				      	<h1>DATOS PARA PRODUCTOS</h1>
-
+						<div class="form-group col-md-4">
+			                  <label for="inputState">Familia del Producto</label>
+			                  <select id="familiaSelect" class="form-control form-control-lg" name="estado" required>
+			                    <option value="1" selected>Seleccione...</option>
+			                    @foreach($familias as $familia)
+			                       <option value="{{ $familia->id}}">{{ $familia->nombre}}</option>
+			                    @endforeach
+			                  </select>
+			                </div>
+			                <div class="form-group col-md-4" id="productoAjaxC">
+			                </div>
 				      </div>
 				  </div>
 		</div></div>
       		
       </div>
     <div class="modal-footer">
-    <button type="submit" class="btn btn-lg btn-primary" id="BotonGuardarComerciante">Registrar</button>
+    <button type="submit" class="btn btn-lg btn-primary" id="BotonGuardarComerciante" style="display: none;">Registrar</button>
+    <button type="button" class="btn btn-lg btn-primary" id="BotonContinuarGuardarComerciante1" onclick="continuar('1')">Continuar</button>
+    <button type="button" class="btn btn-lg btn-primary" id="BotonContinuarGuardarComerciante2" style="display: none;" onclick="continuar('2')"">Continuar</button>
     </div>
         
      </div>
