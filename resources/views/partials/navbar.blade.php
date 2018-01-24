@@ -91,7 +91,7 @@
                         <a href="{{ URL::to('/administrador/productos')}}"><i class="fa fa-fw fa-table"></i> Productos</a>
                     </li>
                     <li  id="EstaciomientoAdmin">
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Estacionamiento</a>
+                        <a href="#"><i class="fa fa-car fa-edit"></i> Estacionamiento</a>
                     </li>
                     <li  id="ZonasAdmin">
                         <a href="javascript:;" data-toggle="collapse" data-target="#zonasCollapse"><i class="fa fa-fw fa-arrows-v"></i>Zonas de Comercio<i class="fa fa-fw fa-caret-down"></i></a>

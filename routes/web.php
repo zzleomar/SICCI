@@ -34,9 +34,12 @@ Route::group(['prefix' => 'administrador','middleware' => ['auth', 'Administrado
 	Route::get('/productos', function () {
 	    return view('administrador.producto');
 	});
-	Route::get('/locales', function () {
-	    return view('administrador.locales');
-	});
+
+	Route::resource('/locales','localController');
+	Route::resource('posts','PostController');
+	Route::get('/local','localController@index2');
+
+
 	Route::get('/comerciantes','ComercianteController@comerciantes');
 	Route::get('/comerciantes/ajax/{id}','ComercianteController@Ajaxcomerciantes');
 	Route::post('/comerciantes/registrar','ComercianteController@nuevo');
@@ -45,7 +48,9 @@ Route::group(['prefix' => 'administrador','middleware' => ['auth', 'Administrado
 });
 Route::group(['prefix' => 'direccion','middleware' => ['auth']],function(){
 	Route::get('/parroquias/{id}','DireccionController@ajaxparroquia');
+	Route::get('/zonas/{id}','DireccionController@ajaxzona');
 });
+
 
 
 Route::group(['prefix' => 'comerciante','middleware' => ['auth', 'ComercianteRole']],function(){
@@ -53,4 +58,5 @@ Route::group(['prefix' => 'comerciante','middleware' => ['auth', 'ComercianteRol
 	    return view('comerciante.index');
 	});
 });
+
 

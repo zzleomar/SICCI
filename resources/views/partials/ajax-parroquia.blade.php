@@ -10,6 +10,12 @@
     $(document).ready(function(){
     	$("#slectParroquia").change(function(){
              $("#ubiAjax").css("display", "initial"); 
+              var op = $("#slectParroquia option:selected").val();
+            var url="{{ URL::to('/direccion/zonas') }}/"+op; 
+             //alert(url);
+                $.get(url,function(data){ 
+                  $('#zonaAjaxL').empty().html(data);
+                }); 
         });
       });
 

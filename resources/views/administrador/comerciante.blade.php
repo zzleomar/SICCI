@@ -82,10 +82,9 @@ function CargarComerciante(idUser){
                   $('#parroquiaAjaxC').empty().html(data);
                 }); 
             });
-        });
         $("#slectParroquia").change(function(){
              $("#ubiAjax").css("display", "initial"); 
         });
-
+        });
 </script>
 @endsection

@@ -11,7 +11,7 @@ class Parroquia extends Model
     ];
 
     public function zonas(){
-        return $this->hasMany('App\Parroquia');
+        return $this->hasMany('App\Zona');
     }
 
     public function municipio(){

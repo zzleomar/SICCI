@@ -36,4 +36,8 @@ class User extends Authenticatable
         return $this->belongsTo('App\Parroquia');
     }
 
+     public function scopeBuscarCI($query, $dato){
+        return $query->where('cedula',$dato);
+    }
+
 }
