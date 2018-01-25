@@ -20,8 +20,8 @@
     <link href="{{ asset('template/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/personalesT.css') }}" rel="stylesheet">
     @yield('styles')
-
-
+    
+    <link href="{{ asset('plugin/toastr.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -48,9 +48,11 @@
     <!-- jQuery -->
 
     <script src="{{ asset('template/js/jquery.js') }}"></script>
+    <script src="{{ asset('js/validaciones-form.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('template/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('plugin/toastr.min.js') }}"></script>
         @yield('scripts')
 
     <!-- Morris Charts JavaScript

@@ -47,7 +47,7 @@ Route::group(['prefix' => 'administrador','middleware' => ['auth', 'Administrado
 
 });
 Route::group(['prefix' => 'direccion','middleware' => ['auth']],function(){
-	Route::get('/parroquias/{id}','DireccionController@ajaxparroquia');
+	Route::get('/parroquias/{id1}/{idM}','DireccionController@ajaxparroquia');
 	Route::get('/zonas/{id}','DireccionController@ajaxzona');
 });
 

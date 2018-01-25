@@ -63,8 +63,8 @@
             
 
 @section('scripts')
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+<script type="text/javascript" src="{{ asset('js/validaciones-form.js') }}"></script>
 <script type="text/javascript">
 
 function CargarComerciante(idUser){
@@ -78,7 +78,7 @@ function CargarComerciante(idUser){
     $(document).ready(function(){
         $("#selectmun").change(function(){
             var op = $("#selectmun option:selected").val();
-            var url="{{ URL::to('/direccion/parroquias') }}/"+op; 
+            var url="{{ URL::to('/direccion/parroquias') }}/"+'1'+'/'+op; 
              //alert(url);
                 $.get(url,function(data){ 
                   $('#parroquiaAjaxC').empty().html(data);
@@ -89,7 +89,7 @@ function CargarComerciante(idUser){
         });
          $("#selectmun2").change(function(){
             var op = $("#selectmun2 option:selected").val();
-            var url="{{ URL::to('/direccion/parroquias') }}/"+op; 
+            var url="{{ URL::to('/direccion/parroquias') }}/"+'2'+'/'+op; 
              //alert(url);
                 $.get(url,function(data){ 
                   $('#parroquiaAjaxC2').empty().html(data);
@@ -104,47 +104,6 @@ function CargarComerciante(idUser){
                 }); 
             });
         });
-    function continuar(boton){
-        if(boton==1){
-            $('#collapseComercianteNew1').collapse('toggle');
-            $('#collapseComercianteNew2').collapse('toggle');
-             $("#BotonContinuarGuardarComerciante1").css("display", "none"); 
-             $("#BotonContinuarGuardarComerciante2").css("display", "initial"); 
-        }
-        else{
-            $('#collapseComercianteNew2').collapse('toggle');
-            $('#collapseComercianteNew3').collapse('toggle');
-             $("#BotonContinuarGuardarComerciante2").css("display", "none"); 
-             $("#BotonGuardarComerciante").css("display", "initial"); 
-        }
-      }
-      function cambio(opc){
-        if(opc==1){
-            $('#collapseComercianteNew1').collapse('toggle');
-            $('#collapseComercianteNew2').collapse('hide');
-            $('#collapseComercianteNew3').collapse('hide');
-             $("#BotonContinuarGuardarComerciante1").css("display", "initial"); 
-             $("#BotonGuardarComerciante").css("display", "none"); 
-             $("#BotonContinuarGuardarComerciante2").css("display", "none"); 
-        }
-        else{
-            if(opc=='2'){
-                $('#collapseComercianteNew2').collapse('toggle');
-            $('#collapseComercianteNew1').collapse('hide');
-            $('#collapseComercianteNew3').collapse('hide');
-             $("#BotonGuardarComerciante").css("display", "none"); 
-             $("#BotonContinuarGuardarComerciante1").css("display", "none"); 
-             $("#BotonContinuarGuardarComerciante2").css("display", "initial"); 
-            }
-            else{
-                $('#collapseComercianteNew2').collapse('hide');
-            $('#collapseComercianteNew1').collapse('hide');
-            $('#collapseComercianteNew3').collapse('toggle');
-             $("#BotonGuardarComerciante").css("display", "initial"); 
-             $("#BotonContinuarGuardarComerciante1").css("display", "none"); 
-             $("#BotonContinuarGuardarComerciante2").css("display", "none"); 
-            }
-        }
-      }
+    
 </script>
 @endsection

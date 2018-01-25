@@ -9,9 +9,11 @@ use App\Parroquia;
 
 class DireccionController extends Controller
 {
-    public function ajaxparroquia($muni){
+    public function ajaxparroquia($id,$muni){
     	$municipio=Municipio::find($muni);
-    	return view('partials.ajax-parroquia')->with('parroquias',$municipio->parroquias);
+    	return view('partials.ajax-parroquia')
+    				->with('id',$id)
+    				->with('parroquias',$municipio->parroquias);
     }
     public function ajaxzona($parroq){
     	$parroquia=Parroquia::find($parroq);

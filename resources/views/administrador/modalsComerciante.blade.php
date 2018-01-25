@@ -1,5 +1,8 @@
 <!-MODAL NUEVO COMERCIANTE--->
-<form method="post" id="nuevaComercianteForm" name="nuevaComercianteForm" action="{{ URL::to('/administrador/comerciantes/registrar') }}">   
+@php
+	$url=URL::to('/administrador/comerciantes/registrar');
+@endphp
+<form method="post" id="nuevaComercianteForm" name="nuevaComercianteForm" onsubmit=" return formNuevoComerciante('{{$url}}')">   
                         {{ csrf_field() }}
 
     <div class="modal fade bd-example-modal-lg" id="NuevaComercianteModal" data-keyboard="false" data-backdrop="static">
@@ -31,7 +34,7 @@
 				      	<div class="form-row">
 						    <div class="form-group col-md-6">
 						      <label for="inputPassword4">Nro. Cedula</label>
-						      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="ejem. 23806671" name="cedula" required>
+						      <input type="text" class="form-control form-control-lg" id="cedula" placeholder="ejem. 23806671" name="cedula" >
 						      @if ($errors->has('cedula'))
 			                    <span class="help-block">
 			                        <strong>Este número de Cedula esta registrado</strong>
@@ -40,7 +43,7 @@
 						    </div>
 						    <div class="form-group col-md-6">
 						      <label for="inputEmail4">Email</label>
-						      <input type="email" class="form-control form-control-lg" id="inputEmail4" placeholder="ejemplo@correo.com" name="email" required>
+						      <input type="text" class="form-control form-control-lg" id="email" placeholder="ejemplo@correo.com" name="email" >
 						      @if ($errors->has('email'))
 			                    <span class="help-block">
 			                        <strong>Este correo se encuentra registrado</strong>
@@ -51,34 +54,34 @@
 						  <div class="form-row">
 						    <div class="form-group col-md-6">
 						      <label for="inputEmail4">Nombre</label>
-						      <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="Ingrese Nombre" name="nombre" required>
+						      <input type="text" class="form-control form-control-lg" id="nombre" placeholder="Ingrese Nombre" name="nombre" >
 						    </div>
 						    <div class="form-group col-md-6">
 						      <label for="inputPassword4">Apellido</label>
-						      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="Ingrese Apelido" name="apellido" required>
+						      <input type="text" class="form-control form-control-lg" id="apellido" placeholder="Ingrese Apelido" name="apellido" >
 						    </div>
 						  </div>
 						  <div class="form-row">
 						    <div class="form-group col-md-6">
 						      <label for="inputEmail4">Tlf Movil</label>
-						      <input type="text" class="form-control form-control-lg" id="inputEmail4" placeholder="04145682375" name="nombre" required>
+						      <input type="text" class="form-control form-control-lg" id="tlfM" placeholder="04145682375" name="tlfM" >
 						    </div>
 						    <div class="form-group col-md-6">
 						      <label for="inputPassword4">Tlf fijo</label>
-						      <input type="text" class="form-control form-control-lg" id="inputPassword4" placeholder="02932344563" name="apellido" required>
+						      <input type="text" class="form-control form-control-lg" id="tlfF" placeholder="02932344563" name="tlfF" >
 						    </div>
 						  </div>
 							<div class="form-row">
 						    <div class="form-group col-md-4">
 						      <label for="inputState">Estado</label>
-						      <select id="inputState" class="form-control form-control-lg" name="estado" required>
+						      <select id="selectest" class="form-control form-control-lg" name="estadoC" >
 						        <option value="1" selected>Sucre</option>
 						      </select>
 						    </div>
 						    <div class="form-group col-md-4" id="municipioAjaxC">
 						      <label for="selectmun">Municipio</label>
-						      <select class="form-control form-control-lg" name="municipio" required id="selectmun">
-						        <option selected>Seleccione ...</option>
+						      <select class="form-control form-control-lg" name="municipioC"  id="selectmun">
+						        <option selected value="">Seleccione ...</option>
 						        @foreach($estado->municipios as $municipio)
 						       		 <option value="{{ $municipio->id}}">{{ $municipio->nombre}}</option>
 						        @endforeach
@@ -91,11 +94,11 @@
 						  <div class="form-row" style="display: none;" id="ubiAjax">
 						    <div class="form-group col-md-8" >
 						      <label for="inputState">Ubicación</label>
-						      <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="Sector/Avenida/Apartamento" name="ubicacion" required>
+						      <input type="text" class="form-control form-control-lg" id="ubicacion" placeholder="Sector/Avenida/Apartamento" name="ubicacion" >
 						    </div>
 							<div class="form-group col-md-4">
 						      <label for="inputCity">Carnet de la Patria</label>
-						      <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="Nro. Serial" name="carnet" required>
+						      <input type="text" class="form-control form-control-lg" id="carnet" placeholder="Nro. Serial" name="carnet" >
 						    </div>
 						  </div>
 				      </div>
@@ -105,13 +108,13 @@
 				      	<h4>Introdusca la información del local</h4>
 				      	<div class="form-group col-md-4">
                   <label for="inputState">Estado</label>
-                  <select id="inputState" class="form-control form-control-lg" name="estado" required>
+                  <select id="inputState" class="form-control form-control-lg" name="estadoL" >
                     <option value="1" selected>Sucre</option>
                   </select>
                 </div>
                 <div class="form-group col-md-4" id="municipioAjaxC">
                   <label for="selectmun">Municipio</label>
-                  <select class="form-control form-control-lg" name="municipio" required id="selectmun2">
+                  <select class="form-control form-control-lg" name="municipioL"  id="selectmun2">
                     <option selected>Seleccione ...</option>
                     @foreach($estado->municipios as $municipio)
                        <option value="{{ $municipio->id}}">{{ $municipio->nombre}}</option>
@@ -133,7 +136,7 @@
 				      <div class="panel-body">
 						<div class="form-group col-md-4">
 			                  <label for="inputState">Familia del Producto</label>
-			                  <select id="familiaSelect" class="form-control form-control-lg" name="estado" required>
+			                  <select id="familiaSelect" class="form-control form-control-lg" name="familia" >
 			                    <option value="1" selected>Seleccione...</option>
 			                    @foreach($familias as $familia)
 			                       <option value="{{ $familia->id}}">{{ $familia->nombre}}</option>

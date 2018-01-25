@@ -12,8 +12,8 @@
 @else
 
 <label for="inputState">Producto</label>
-      <select id="slectParroquia" class="form-control form-control-lg" name="parroquia" required>
-        <option selected>Seleccione ...</option>
+      <select id="producto" class="form-control form-control-lg" name="producto">
+        <option value="" selected>Seleccione ...</option>
         @foreach($productos as $producto)
         	<option value="{{ $producto->id}}">{{ $producto->nombre}}</option>
         @endforeach
