@@ -34,7 +34,7 @@
 				      	<div class="form-row">
 						    <div class="form-group col-md-6">
 						      <label for="inputPassword4">Nro. Cedula</label>
-						      <input type="text" class="form-control form-control-lg" id="cedula" placeholder="ejem. 23806671" name="cedula" required title="minimo 6 caracteres" maxlength="7" onkeypress="return soloNum(event)">
+						      <input type="text" class="form-control form-control-lg" id="cedula" placeholder="ejem. 23806671" name="cedula" title="minimo 6 caracteres" maxlength="7" onkeypress="return soloNum(event)">
 						      @if ($errors->has('cedula'))
 			                    <span class="help-block">
 			                        <strong>Este número de Cedula esta registrado</strong>

@@ -1,6 +1,27 @@
 document.write('<script src="/js/ajaxForm.js"></script>');
 function formNuevoComerciante(action)
 {
+	if(registroComerciante()){
+    	if(registroLocal()){
+    		document.getElementById('nuevaComercianteForm').action = action;
+			return true;
+    	}
+    	else{
+        	$("#BotonGuardarComerciante").css("display", "none");
+     		$("#BotonContinuarGuardarComerciante2").css("display", "initial"); 
+     		$('#collapseComercianteNew3').collapse('toggle');
+    		$('#collapseComercianteNew2').collapse('toggle');
+    		return false;
+    	}
+     } 
+     else{
+        $('#collapseComercianteNew1').collapse('toggle');
+        $('#collapseComercianteNew3').collapse('toggle');
+        $("#BotonContinuarGuardarComerciante1").css("display", "initial"); 
+        $("#BotonGuardarComerciante").css("display", "none");
+    		return false;
+        
+     }
 	var json ={
 		"0":{
 			"id":cedula,
@@ -72,7 +93,6 @@ function formNuevoComerciante(action)
 		}
 
 	}
-	console.log(json);
 	/*var cedula=$('input:text[name=cedula]').val();
 	var email=$('input:text[name=email]').val();
 	var nombre=$('input:text[name=nombre]').val();
@@ -95,11 +115,8 @@ function formNuevoComerciante(action)
 
 	var familia=$('select[name=familia] option:selected').val();
 	var producto=$('select[name=producto] option:selected').val();*/
-	
-    document.getElementById('nuevaComercianteForm').action = action;
-	var estado=false;
 
-
+/*
   if(!piloto){
     document.getElementById('BotonPlanificarVuelo').disabled=false;
     alert("Asigne un piloto al vuelo");
@@ -140,7 +157,7 @@ function formNuevoComerciante(action)
         }
       }
     }
-  }
+  }*/
 }
 
 function continuar(boton){
