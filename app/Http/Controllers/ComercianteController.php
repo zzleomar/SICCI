@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Estado;
+use App\Zona;
 use App\Carga;
 use App\Familia;
 use App\Municipio;
 use App\Parroquia;
 use App\Comerciante;
+use App\Local;
 use App\Http\Requests\UserRequest;
 
 
@@ -26,7 +28,10 @@ class ComercianteController extends Controller
 	$nuevo->apellidos=$datos->apellido;
 	$nuevo->email=$datos->email;
 	$nuevo->cedula=$datos->cedula;
-	$nuevo->direccion=$datos->estado.", ".$datos->municipio.", ".$datos->ciudad.", ".$datos->ubicacion;
+	$nuevo->estado_id=$datos->estadoC;
+	$nuevo->municipio_id=$datos->municipioC;
+	$nuevo->parroquia_id=$datos->parroquia1;
+	$nuevo->ubicacion=$datos->ubicacion;
 	$nuevo->password=bcrypt("1234567");
 	$nuevo->tlf_movil="0414 123 2354";
 	$nuevo->tlf_casa="0293 123 2354";
@@ -36,6 +41,21 @@ class ComercianteController extends Controller
 	$nuevocomerciantes= new Comerciante();
 	$nuevocomerciantes->cod_carnet=$datos->carnet;
 	$nuevo->comerciante()->save($nuevocomerciantes);
+
+	$nuevolocal= new Local();
+	$zona=Zona::find($datos->zona);
+	$nuevolocal->zona()->associate($zona);
+	$nuevolocal->comerciante()->associate($nuevo->comerciante);
+	$nuevolocal->save();
+
+	$carga=new Carga();
+	$carga->cantidad=0;
+	$carga->precio_adquirido=0;
+	$carga->precio_venta=0;
+	$carga->proveedor_id=0;
+	$carga->local_id=0;
+	$carga->producto_id=0;
+
 
     return redirect('/administrador/comerciantes');
 

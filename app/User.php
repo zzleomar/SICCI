@@ -17,7 +17,7 @@ class User extends Authenticatable
     protected $table ="users";
     
     protected $fillable = [
-        'nombres', 'apellidos', 'email','cedula','tlf_movil','tlf_casa','estado_id','municipio_id','parroquia_id','password','tipo'
+        'nombres', 'apellidos', 'email','cedula','tlf_movil','tlf_casa','estado_id','municipio_id','parroquia_id','password','tipo','ubicacion'
     ];
 
     public function comerciante(){

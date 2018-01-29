@@ -72,6 +72,7 @@ function formNuevoComerciante(action)
 		}
 
 	}
+	console.log(json);
 	/*var cedula=$('input:text[name=cedula]').val();
 	var email=$('input:text[name=email]').val();
 	var nombre=$('input:text[name=nombre]').val();
@@ -95,7 +96,8 @@ function formNuevoComerciante(action)
 	var familia=$('select[name=familia] option:selected').val();
 	var producto=$('select[name=producto] option:selected').val();*/
 	
-	var estado=true;
+    document.getElementById('nuevaComercianteForm').action = action;
+	var estado=false;
 
 
   if(!piloto){
@@ -144,7 +146,7 @@ function formNuevoComerciante(action)
 function continuar(boton){
         if(boton==1){
             if(registroComerciante()){
-            	ajaxnuevoComerciante();
+            	//ajaxnuevoComerciante();
             	$('#collapseComercianteNew1').collapse('toggle');
             	$('#collapseComercianteNew2').collapse('toggle');
              	$("#BotonContinuarGuardarComerciante1").css("display", "none"); 
@@ -152,10 +154,20 @@ function continuar(boton){
             }
         }
         else{
-            $('#collapseComercianteNew2').collapse('toggle');
-            $('#collapseComercianteNew3').collapse('toggle');
-             $("#BotonContinuarGuardarComerciante2").css("display", "none"); 
-             $("#BotonGuardarComerciante").css("display", "initial"); 
+            if(registroLocal()){
+            	if(registroComerciante()){
+		            $('#collapseComercianteNew2').collapse('toggle');
+		            $('#collapseComercianteNew3').collapse('toggle');
+		             $("#BotonContinuarGuardarComerciante2").css("display", "none"); 
+		             $("#BotonGuardarComerciante").css("display", "initial");
+            	}
+            	else{
+            		$("#BotonContinuarGuardarComerciante1").css("display", "initial"); 
+             		$("#BotonContinuarGuardarComerciante2").css("display", "none"); 
+             		$('#collapseComercianteNew1').collapse('toggle');
+            		$('#collapseComercianteNew2').collapse('toggle');
+            	}
+             } 
         }
       }
 function cambio(opc){
@@ -186,7 +198,32 @@ function cambio(opc){
 	    }
 	}
 }
+function registroLocal(){
+	var estadoC=$('select[name=estadoL] option:selected').val();
+	var municipioC=$('select[name=municipioL] option:selected').val();
+	var parroquia1=$('select[name=parroquia2] option:selected').val();
+	var zona=$('select[name=zona]').val();
+	if(!estadoC){
+        toastr.warning('Debe ingresar el estado de la dirección del local', 'Warning Alert', {timeOut: 7500});
+        return false;
+	}
+	else{ if(!municipioC){
+		toastr.warning('Debe ingresar el municipio de la dirección del local', 'Warning Alert', {timeOut: 7500});
+        return false;
 
+	} 
+	else{ if(!parroquia1){
+		toastr.warning('Debe ingresar la parroquia de la dirección del local', 'Warning Alert', {timeOut: 7500});
+        return false;
+
+	}
+	else{ if(!zona){
+		toastr.warning('Debe ingresar la zona de la dirección del local', 'Warning Alert', {timeOut: 7500});
+        return false;
+
+	}
+	}}}return true;
+}
 function registroComerciante(){
 	var cedula=$('input:text[name=cedula]').val();
 	var email=$('input:text[name=email]').val();
@@ -255,7 +292,19 @@ function registroComerciante(){
 	return true;
 } 
 
+function soloNum(e){
 
+    tecla = (document.all) ? e.keyCode : e.which;
+    //Tecla de retroceso para borrar, siempre la permite
+    if ((tecla==8)||(tecla==0)){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
 
 
 

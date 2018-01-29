@@ -1,3 +1,2 @@
 function ajaxnuevoComerciante(){
-	alert("sii");
 }

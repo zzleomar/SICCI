@@ -10,7 +10,7 @@
 @else
 <label for="inputState">Zona</label>
       <select id="zonaidS" class="form-control form-control-lg" name="zona" required>
-        <option selected>Seleccione ...</option>
+        <option selected value="">Seleccione ...</option>
         @foreach($zonas as $zona)
           <option value="{{ $zona->id}}">{{ $zona->nombre}}</option>
         @endforeach

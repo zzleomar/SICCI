@@ -18,5 +18,19 @@
         	<option value="{{ $producto->id}}">{{ $producto->nombre}}</option>
         @endforeach
       </select>
+      <script type="text/javascript">
+    $(document).ready(function(){
+      $("#producto").change(function(){
+              var op = $("#producto option:selected").val();
+              if(op){
+                 $("#UnidadesDatos").css("display", "initial"); 
+              }
+              else{
+                $("#UnidadesDatos").css("display", "none"); 
+              }
+        });
+      });
 
+</script>
 @endif
+

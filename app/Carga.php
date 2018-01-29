@@ -49,6 +49,7 @@ class Carga extends Model
             $arrayA=array("producto" => $producto, "vendidos" => $vendidos);
             array_push($datosP, $arrayA);
         }
+        
         return $datosP;
    }
 

@@ -34,7 +34,7 @@
 				      	<div class="form-row">
 						    <div class="form-group col-md-6">
 						      <label for="inputPassword4">Nro. Cedula</label>
-						      <input type="text" class="form-control form-control-lg" id="cedula" placeholder="ejem. 23806671" name="cedula" >
+						      <input type="text" class="form-control form-control-lg" id="cedula" placeholder="ejem. 23806671" name="cedula" required title="minimo 6 caracteres" maxlength="7" onkeypress="return soloNum(event)">
 						      @if ($errors->has('cedula'))
 			                    <span class="help-block">
 			                        <strong>Este número de Cedula esta registrado</strong>
@@ -64,11 +64,11 @@
 						  <div class="form-row">
 						    <div class="form-group col-md-6">
 						      <label for="inputEmail4">Tlf Movil</label>
-						      <input type="text" class="form-control form-control-lg" id="tlfM" placeholder="04145682375" name="tlfM" >
+						      <input type="text" class="form-control form-control-lg" id="tlfM" placeholder="04145682375" name="tlfM" onkeypress="return soloNum(event)">
 						    </div>
 						    <div class="form-group col-md-6">
 						      <label for="inputPassword4">Tlf fijo</label>
-						      <input type="text" class="form-control form-control-lg" id="tlfF" placeholder="02932344563" name="tlfF" >
+						      <input type="text" class="form-control form-control-lg" id="tlfF" placeholder="02932344563" name="tlfF" onkeypress="return soloNum(event)">
 						    </div>
 						  </div>
 							<div class="form-row">
@@ -115,7 +115,7 @@
                 <div class="form-group col-md-4" id="municipioAjaxC">
                   <label for="selectmun">Municipio</label>
                   <select class="form-control form-control-lg" name="municipioL"  id="selectmun2">
-                    <option selected>Seleccione ...</option>
+                    <option selected value="">Seleccione ...</option>
                     @foreach($estado->municipios as $municipio)
                        <option value="{{ $municipio->id}}">{{ $municipio->nombre}}</option>
                     @endforeach
@@ -134,16 +134,33 @@
 				  </div>
 				  <div id="collapseComercianteNew3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 				      <div class="panel-body">
-						<div class="form-group col-md-4">
-			                  <label for="inputState">Familia del Producto</label>
-			                  <select id="familiaSelect" class="form-control form-control-lg" name="familia" >
-			                    <option value="1" selected>Seleccione...</option>
-			                    @foreach($familias as $familia)
-			                       <option value="{{ $familia->id}}">{{ $familia->nombre}}</option>
-			                    @endforeach
-			                  </select>
-			                </div>
+				      	<div class="form-row col-md-12">
+							<div class="form-group col-md-4">
+				                  <label for="inputState">Familia del Producto</label>
+				                  <select id="familiaSelect" class="form-control form-control-lg" name="familia" >
+				                    <option value="1" selected>Seleccione...</option>
+				                    @foreach($familias as $familia)
+				                       <option value="{{ $familia->id}}">{{ $familia->nombre}}</option>
+				                    @endforeach
+				                  </select>
+				                </div>
 			                <div class="form-group col-md-4" id="productoAjaxC">
+			                </div>
+				      	</div>
+				      	<br>
+			                <div class="form-row col-md-12" id="UnidadesDatos" style="display: none;"><br>
+				                  <label for="inputState">Datos de la Carga</label><br>
+			                	<div class="form-group col-md-4">
+			                		<select name="uni" class="form-control form-control-lg">
+				                		<option>Unidades</option>
+				                		<option>Peso "Kg"</option>
+				                		<option>Volumen "Litro"</option>
+			                		</select>
+			                	</div>
+			                	<div class="form-group col-md-4">
+			                		<input class="form-control form-control-lg" type="number" name="Datosunidades" placeholder="Cantidad de Producto">
+			                	</div>
+			                	
 			                </div>
 				      </div>
 				  </div>
