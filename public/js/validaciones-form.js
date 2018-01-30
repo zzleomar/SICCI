@@ -1,10 +1,16 @@
 document.write('<script src="/js/ajaxForm.js"></script>');
 function formNuevoComerciante(action)
 {
+				return ajaxfnuevoComerciante(action);
 	if(registroComerciante()){
     	if(registroLocal()){
-    		document.getElementById('nuevaComercianteForm').action = action;
-			return true;
+    		if(registroProducto()){
+    			return false;
+				return ajaxfnuevoComerciante(action);
+    		}
+    		else{
+    			return false;
+    		}
     	}
     	else{
         	$("#BotonGuardarComerciante").css("display", "none");
@@ -20,11 +26,11 @@ function formNuevoComerciante(action)
         $("#BotonContinuarGuardarComerciante1").css("display", "initial"); 
         $("#BotonGuardarComerciante").css("display", "none");
     		return false;
-        
+
      }
-	var json ={
+	/*var json ={
 		"0":{
-			"id":cedula,
+			"id":"cedula",
 			"value":$('input:text[name=cedula]').val()
 		},
 		"1":{
@@ -93,7 +99,7 @@ function formNuevoComerciante(action)
 		}
 
 	}
-	/*var cedula=$('input:text[name=cedula]').val();
+	var cedula=$('input:text[name=cedula]').val();
 	var email=$('input:text[name=email]').val();
 	var nombre=$('input:text[name=nombre]').val();
 	var apellido=$('input:text[name=apellido]').val();
@@ -215,6 +221,44 @@ function cambio(opc){
 	    }
 	}
 }
+
+function registroProducto(){
+	var familia=$('select[name=familia] option:selected').val();
+	var producto=$('select[name=producto] option:selected').val();
+	var uni=$('select[name=uni] option:selected').val();
+	var Datosunidades=$('input[name=Datosunidades]').val();
+	var precio_adqui=$('input[name=precio_adqui]').val();
+	var precio_venta=$('input[name=precio_venta]').val();
+	if(!familia){
+        toastr.warning('Debe seleccionar la familia del producto', 'Warning Alert', {timeOut: 7500});
+        return false;
+	}
+	else{ if(!producto){
+		toastr.warning('Debe seleccionar el producto', 'Warning Alert', {timeOut: 7500});
+        return false;
+
+	}if(!uni){
+        toastr.warning('Debe ingresar la unidad de medida', 'Warning Alert', {timeOut: 7500});
+        return false;
+	}
+	else{ if(!Datosunidades){
+		toastr.warning('Debe ingresar la cantidad de productos', 'Warning Alert', {timeOut: 7500});
+        return false;
+
+	} 
+	else{ if(!precio_adqui){
+		toastr.warning('Debe ingresar el precio de adquicisión', 'Warning Alert', {timeOut: 7500});
+        return false;
+
+	}
+	else{ if(!precio_venta){
+		toastr.warning('Debe ingresar el precio de venta', 'Warning Alert', {timeOut: 7500});
+        return false;
+
+	}
+	}}}}return true;
+}
+
 function registroLocal(){
 	var estadoC=$('select[name=estadoL] option:selected').val();
 	var municipioC=$('select[name=municipioL] option:selected').val();
@@ -324,18 +368,16 @@ function soloNum(e){
 }
 
 
+function soloNumDec(e){
+    tecla = (document.all) ? e.keyCode : e.which;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Tecla de retroceso para borrar, siempre la permite
+    if ((tecla==8)||(tecla==0)){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9-.]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}

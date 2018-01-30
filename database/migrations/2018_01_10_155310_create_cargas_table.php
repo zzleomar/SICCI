@@ -16,8 +16,8 @@ class CreateCargasTable extends Migration
         Schema::create('cargas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cantidad')->unsigned();
-            $table->float('precio_adquirido');
-            $table->float('precio_venta'); 
+            $table->float('precio_adquirido',8,3);
+            $table->float('precio_venta',8,3); 
             $table->timestamps();
             $table->integer('proveedor_id')->unsigned()->nullable();
             $table->foreign('proveedor_id')->references('id')->on('proveedores')->onDelete('cascade');

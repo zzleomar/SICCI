@@ -25,14 +25,14 @@ class localController extends Controller
         $json=array();
         foreach ($locales as $local) {
         	$direccion=$local->direccion();
-        	$user=$local->comerciante->DatosUser($local->comerciante->user_id);
-        	$cedula=$user->cedula.' - '.$user->nombres." ".$user->apellidos;
+
+            $cedula=$local->comerciante->user->cedula.' - '.$local->comerciante->user->nombres." ".$local->comerciante->user->apellidos;
         	$id=$local->id;
         	$reg=array('cedula' => $cedula, 'direccion' => $direccion, 'id' => $id);
         	array_push($json, $reg);
         }
         $page = Input::get('page');
-        $json = new LengthAwarePaginator($json, $total = sizeof($json), 5, $page);
+        $json = new LengthAwarePaginator($json, $total = sizeof($json), 10, $page);
     	$json->setPath('/administrador/locales');
         return response()->json($json);
 

@@ -30,27 +30,10 @@
                                                 </tr>
                                             </thead>
 
-                                            @php
-                                                $ind=sizeof($comerciantes);
-                                                for($i=0;$i<$ind;$i++){
-                                                    $user=($comerciantes[$i]->DatosUser($comerciantes[$i]->user_id));
-                                            @endphp
-                                            <tbody data-toggle="modal" data-target="#ComercianteModal" onclick="CargarComerciante('{{ $user->id }}')">
-                                                <tr class="col-hover">
-                                                    <td>{{ $user->cedula }}</td>
-                                                    <td>{{ $user->nombres." ".$user->apellidos }}</td>
-                                                    <td>{{ $datosP[$i]['locales'] }}</td>
-                                                    <td>{{ $datosP[$i]['cantidad'] }}</td>
-                                                    <td>{{ $datosP[$i]['vendido'] }}</td>
-                                                </tr>
-                                            </tbody>
-                                            @php
-                                                }
-                                            @endphp
+                                            <tbody id="pruebaAjax"></tbody>
                                         </table>
                                     </div>
                                 </div>
-                          {!! $comerciantes->render() !!}
                              
                             </div>
 
@@ -66,7 +49,7 @@
 
 <script type="text/javascript" src="{{ asset('js/validaciones-form.js') }}"></script>
 <script type="text/javascript">
-
+        var url = "{{ URL::TO('/administrador/comerciantes') }}";
 function CargarComerciante(idUser){
         var url="{{ URL::to('/administrador/comerciantes/ajax') }}/"+idUser; 
       //alert(url);
@@ -106,4 +89,5 @@ function CargarComerciante(idUser){
         });
     
 </script>
+<script src="/js/comerciantes-ajax.js"></script> 
 @endsection

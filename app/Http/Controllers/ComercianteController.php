@@ -12,6 +12,7 @@ use App\Municipio;
 use App\Parroquia;
 use App\Comerciante;
 use App\Local;
+use App\Producto;
 use App\Http\Requests\UserRequest;
 
 
@@ -48,21 +49,37 @@ class ComercianteController extends Controller
 	$nuevolocal->comerciante()->associate($nuevo->comerciante);
 	$nuevolocal->save();
 
+	//falta el proveedor del producto
 	$carga=new Carga();
-	$carga->cantidad=0;
-	$carga->precio_adquirido=0;
-	$carga->precio_venta=0;
-	$carga->proveedor_id=0;
-	$carga->local_id=0;
-	$carga->producto_id=0;
-
+	$carga->cantidad=$datos->Datosunidades;
+	$carga->precio_adquirido=$datos->precio_adqui;
+	$carga->precio_venta=$datos->precio_venta;
+	$carga->proveedor_id=1;
+	$carga->local()->associate($nuevolocal);
+	$producto=Producto::find($datos->producto);
+	$carga->producto()->associate($producto);
+	$carga->save();
+	$nombre=$nuevo->nombres." ".$nuevo->apellidos;
+	$locales=1;
+	$producto=1;
+	$ventas=0;
+    $json=array('id' => $nuevo->id, 'cedula' => $nuevo->cedula, 'nombres' => $nuevo->nombres, 'apellidos' => $nuevo->apellidos, 'locales' => 1, 'cantidad' => 1, 'vendidos' => 0);
+    return response()->json($json);
 
     return redirect('/administrador/comerciantes');
 
   }
   
+  public function index(){
+	$estado=Estado::find(1);
+  	$familias=Familia::all();
+  	return view('administrador.comerciante')
+  			->with('estado',$estado)
+  			->with('familias',$familias);
+  }
+
   public function comerciantes(){
-  	$comerciantes=Comerciante::paginate(10);
+  	$comerciantes=Comerciante::all();
   	$familias=Familia::all();
   	$datosP=array();
 	/*$estado=Estado::orderBy('nombre')->get();
@@ -85,9 +102,14 @@ class ComercianteController extends Controller
 				
 			}
 		}
-		$dP=array("locales" => $locales,"cantidad" => $productos, "vendido" => $vendido);
+		$dP=array("locales" => $locales,"cantidad" => $productos, "vendidos" => $vendido, "id" => $comerciante->id, "cedula" => $comerciante->DatosUser($comerciante->user_id)->cedula, "nombres" => $comerciante->DatosUser($comerciante->user_id)->nombres, "apellidos" => $comerciante->DatosUser($comerciante->user_id)->apellidos, "id" => $comerciante->user_id);
 		array_push($datosP, $dP);
   	}
+  	$page = Input::get('page');
+    $datosP = new LengthAwarePaginator($datosP, $total = sizeof($datosP), 10, $page);
+	$datosP->setPath('/administrador/comerciantes');
+    return response()->json($datosP);
+
   	return view('administrador.comerciante')
   			->with('comerciantes', $comerciantes)
   			->with('datosP', $datosP)

@@ -87,7 +87,7 @@
     $(document).ready(function(){
         $("#selectmun2").change(function(){
             var op = $("#selectmun2 option:selected").val();
-            var url="{{ URL::to('/direccion/parroquias') }}/"+'1'+'/'+op; 
+            var url="{{ URL::to('/direccion/parroquias') }}/"+'3'+'/'+op; 
              //alert(url);
                 $.get(url,function(data){ 
                   $('#parroquiaAjaxC2').empty().html(data);

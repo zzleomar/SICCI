@@ -149,16 +149,22 @@
 				      	</div>
 				      	<br>
 			                <div class="form-row col-md-12" id="UnidadesDatos" style="display: none;"><br>
-				                  <label for="inputState">Datos de la Carga</label><br>
-			                	<div class="form-group col-md-4">
+				                  <label for="inputState" style="text-align: center; display: block;">Datos de la Carga</label><br>
+			                	<div class="form-group col-md-2">
 			                		<select name="uni" class="form-control form-control-lg">
-				                		<option>Unidades</option>
-				                		<option>Peso "Kg"</option>
-				                		<option>Volumen "Litro"</option>
+				                		<option>Unid.</option>
+				                		<option>Peso"Kg"</option>
+				                		<option>Volm."Litro"</option>
 			                		</select>
 			                	</div>
-			                	<div class="form-group col-md-4">
+			                	<div class="form-group col-md-2">
 			                		<input class="form-control form-control-lg" type="number" name="Datosunidades" placeholder="Cantidad de Producto">
+			                	</div>
+			                	<div class="form-group col-md-4">
+			                		<input class="form-control form-control-lg" type="text" name="precio_adqui" placeholder="Precio adquirido" onkeypress="return soloNumDec(event)">
+			                	</div>
+			                	<div class="form-group col-md-4">
+			                		<input class="form-control form-control-lg" type="text" name="precio_venta" placeholder="Precio de Venta" onkeypress="return soloNumDec(event)">
 			                	</div>
 			                	
 			                </div>

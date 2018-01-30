@@ -13,7 +13,6 @@
              var etiqueta="#slectParroquia"+'{{$id}}'+" option:selected";
               var op = $(etiqueta).val();
             var url="{{ URL::to('/direccion/zonas') }}/"+op; 
-             //alert(url);
                 $.get(url,function(data){ 
                   $('#zonaAjaxL').empty().html(data);
                 }); 

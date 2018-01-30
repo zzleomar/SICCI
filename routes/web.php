@@ -41,6 +41,7 @@ Route::group(['prefix' => 'administrador','middleware' => ['auth', 'Administrado
 
 
 	Route::get('/comerciantes','ComercianteController@comerciantes');
+	Route::get('/comerciante','ComercianteController@index');
 	Route::get('/comerciantes/ajax/{id}','ComercianteController@Ajaxcomerciantes');
 	Route::post('/comerciantes/registrar','ComercianteController@nuevo');
 	Route::get('/carga/reciente/ajax/{id}','CargasController@AjaxReciente');

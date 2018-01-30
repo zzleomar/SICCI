@@ -82,7 +82,7 @@
                         <a href="{{ URL::to('/administrador')}}"><i class="fa fa-fw fa-dashboard"></i>Incio</a>
                     </li>
                     <li  id="ComercianteAdmin">
-                        <a href="{{ URL::to('/administrador/comerciantes')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Comerciantes</a>
+                        <a href="{{ URL::to('/administrador/comerciante')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Comerciantes</a>
                     </li>
                     <li  id="LocalAdmin">
                         <a href="{{ URL::to('/administrador/local')}}"><i class="fa fa-bars fa-bar-chart-o"></i> Locales</a>
