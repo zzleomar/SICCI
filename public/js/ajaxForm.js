@@ -65,32 +65,33 @@ function ajaxfnuevoComerciante(action){
         
 
     });
-    return false;
-    
+
     $('input:text[name=cedula]').val("");
     $('input:text[name=email]').val("");
     $('input:text[name=nombre]').val("");
     $('input:text[name=apellido]').val("");
     $('input:text[name=tlfM]').val("");
     $('input:text[name=tlfF]').val("");
-    $('select[name=estadoC] option:selected').val("");
-    $('select[name=municipioC] option:selected').val("");
-    $('select[name=parroquia1] option:selected').val("");
+
+
+    $('select option[value=""]').attr("selected", true);
+    $('select[name=municipioC] option[value=""]').attr("selected", true);
+    $('select[name=parroquia1] option[value=""]').attr("selected", true);
     $('input:text[name=ubicacion]').val("");
     $('input:text[name=carnet]').val("");
 
 
-    $('select[name=estadoL] option:selected').val("");
-    $('select[name=municipioL] option:selected').val("");
-    $('select[name=parroquia2] option:selected').val("");
-    $('select[name=zona]').val()="";
+    $('select[name=municipioL] option[value=""]').attr("selected", true);
+    $('select[name=parroquia2] option[value=""]').attr("selected", true);
+    $('select[name=zona] option[value=""]').attr("selected", true);
 
 
-    $('select[name=familia] option:selected').val("");
-    $('select[name=producto] option:selected').val("");
-    $('select[name=uni] option:selected').val("");
+    $('select[name=familia] option[value=""]').attr("selected", true);
+    $('select[name=producto] option[value=""]').attr("selected", true)
+    $('select[name=uni] option[value=""]').attr("selected", true);
     $('input[name=Datosunidades]').val("");
     $('input[name=precio_adqui]').val("");
     $('input[name=precio_venta]').val("");
+    return false;
 
 }

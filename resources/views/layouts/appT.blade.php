@@ -43,7 +43,7 @@
     </div>
     <!-- /#wrapper -->
 <footer class="footer py-2">
-        <p class="text-center text-muted">&copy;2018 <a href="·">SICCI</a> - Gobernación del Estado Sucre</p>
+        <p class="text-center text-muted">&copy;2018 <a href="{{ URL::to('/')}}">SICCI</a> - Gobernación del Estado Sucre</p>
     </footer>
     <!-- jQuery -->
 
